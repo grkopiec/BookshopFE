@@ -4,7 +4,7 @@
     "scriptPaths": [
       {
         "type": "FILE",
-        "path": "module.js"
+        "path": "app.js"
       }
     ]
   },

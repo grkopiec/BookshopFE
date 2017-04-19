@@ -1,0 +1,27 @@
+{
+  "name": "bookshop",
+  "version": "1.0.0",
+  "description": "Site for bookshop that keeps its data on java backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grkopiec/BookshopFE.git"
+  },
+  "keywords": [
+    "bookshop"
+  ],
+  "author": "grzesiek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grkopiec/BookshopFE/issues"
+  },
+  "homepage": "https://github.com/grkopiec/BookshopFE#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.1.2"
+  }
+}
