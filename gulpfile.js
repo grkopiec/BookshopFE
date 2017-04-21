@@ -42,7 +42,7 @@ gulp.task('js', function() {
 
 gulp.task('uglify', function() {
 	gulp.src(paths.js)
-			.pipe(concat(pkg.name + '.js'))
+			.pipe(concat(pkg.name + '.min.js'))
 			.pipe(uglify())
 			.pipe(gulp.dest('dist/prod'));
 });
