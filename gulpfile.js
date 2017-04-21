@@ -2,63 +2,89 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var less = require('gulp-less');
-var livereload = require('gulp-livereload');
+var browserSync = require('browser-sync').create();
 var pkg = require('./package.json');
 
 var paths = {
+	html: [
+	    './index.html'
+	],
 	js: [
-	     './angular.js',
-	     './app.js'
+	    './angular.js',
+	    './app.js'
 	],
 	less: [
 	    'less/**/*.less' 
 	]
 }
 
-gulp.task('uglify', function() {
-	gulp.src(paths.js)
-	.pipe(concat(pkg.name + '.js'))
-	.pipe(uglify())
-	.pipe(gulp.dest('dist/prod'));
+gulp.task('htmlDev', function() {
+	gulp.src(paths.html)
+			.pipe(gulp.dest('dist/dev'))
+			.pipe(browserSync.reload({
+				stream: true
+			}));
 });
 
-gulp.task('concat', function() {
+gulp.task('htmlProd', function() {
+	gulp.src(paths.html)
+			.pipe(gulp.dest('dist/prod'))
+});
+
+gulp.task('js', function() {
 	gulp.src(paths.js)
-	.pipe(concat(pkg.name + '.js'))
-	.pipe(gulp.dest('dist/dev'));
+			.pipe(concat(pkg.name + '.js'))
+			.pipe(gulp.dest('dist/dev'))
+			.pipe(browserSync.reload({
+				stream: true
+			}));
+});
+
+gulp.task('uglify', function() {
+	gulp.src(paths.js)
+			.pipe(concat(pkg.name + '.js'))
+			.pipe(uglify())
+			.pipe(gulp.dest('dist/prod'));
 });
 
 gulp.task('lessDev', function() {
 	gulp.src('less/bootstrap.less')
-	.pipe(less({
-		filename: 'bootstrap.css'
-	}))
-	.pipe(gulp.dest('dist/dev')); 
+			.pipe(less({
+				filename: 'bootstrap.css'
+			}))
+			.pipe(gulp.dest('dist/dev'))
+			.pipe(browserSync.reload({
+				stream: true
+			}));
 });
 
 gulp.task('lessProd', function() {
 	gulp.src('less/bootstrap.less')
-	.pipe(less({
-		filename: 'bootstrap.css'
-	}))
-	.pipe(gulp.dest('dist/prod')); 
+			.pipe(less({
+				filename: 'bootstrap.css'
+			}))
+			.pipe(gulp.dest('dist/prod')); 
+});
+
+gulp.task('browser-sync', function() {
+	browserSync.init(null, {
+		server: {
+			baseDir: 'dist/dev'
+		}
+	});
 });
 
 gulp.task('watch', function() {
-	livereload.listen(35732);
-	
-	gulp.watch(paths.js, ['concat']);
+	gulp.watch(paths.html, ['htmlDev']);
+	gulp.watch(paths.js, ['js']);
 	gulp.watch(paths.less, ['lessDev']);
-	
-	gulp.watch('dist/dev/' + pkg.name + '.js', function(file) {
-		livereload.changed(file.path);
-	});
-	gulp.watch('dist/dev/bootstrap.css', function(file) {
-		livereload.changed(file.path);
-	});
 });
 
-gulp.task('prod', ['uglify', 'lessProd']);
-gulp.task('dev', ['default']);
+gulp.task('prod', function() {
+	gulp.start(['htmlProd', 'uglify', 'lessProd']);
+});
+gulp.task('dev', function() {
+	gulp.start(['default']);
+});
 
-gulp.task('default', ['concat', 'lessDev', 'watch']);
+gulp.task('default', ['htmlDev', 'js', 'lessDev', 'browser-sync', 'watch']);
