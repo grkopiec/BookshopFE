@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var pkg = require('./package.json');
 
@@ -10,11 +10,12 @@ var paths = {
 	    './index.html'
 	],
 	js: [
+	    './jquery-3.2.1.js',
 	    './angular.js',
 	    './app.js'
 	],
-	less: [
-	    'less/**/*.less' 
+	sass: [
+	    'stylesheets/_bootstrap.scss'       
 	]
 }
 
@@ -47,23 +48,23 @@ gulp.task('uglify', function() {
 			.pipe(gulp.dest('dist/prod'));
 });
 
-gulp.task('lessDev', function() {
-	gulp.src('less/bootstrap.less')
-			.pipe(less({
-				filename: 'bootstrap.css'
-			}))
-			.pipe(gulp.dest('dist/dev'))
-			.pipe(browserSync.reload({
-				stream: true
-			}));
+gulp.task('sassDev', function() {
+	gulp.src(paths.sass)
+	.pipe(sass({
+		filename: 'bootstrap.css'
+	}))
+	.pipe(gulp.dest('dist/dev'))
+	.pipe(browserSync.reload({
+		stream: true
+	}));
 });
 
-gulp.task('lessProd', function() {
-	gulp.src('less/bootstrap.less')
-			.pipe(less({
-				filename: 'bootstrap.css'
-			}))
-			.pipe(gulp.dest('dist/prod')); 
+gulp.task('sassProd', function() {
+	gulp.src(paths.sass)
+	.pipe(sass({
+		filename: 'bootstrap.css'
+	}))
+	.pipe(gulp.dest('dist/prod')); 
 });
 
 gulp.task('browser-sync', function() {
@@ -77,14 +78,14 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
 	gulp.watch(paths.html, ['htmlDev']);
 	gulp.watch(paths.js, ['js']);
-	gulp.watch(paths.less, ['lessDev']);
+	gulp.watch(paths.sass, ['sassDev']);
 });
 
 gulp.task('prod', function() {
-	gulp.start(['htmlProd', 'uglify', 'lessProd']);
+	gulp.start(['htmlProd', 'uglify', 'sassProd']);
 });
 gulp.task('dev', function() {
 	gulp.start(['default']);
 });
 
-gulp.task('default', ['htmlDev', 'js', 'lessDev', 'browser-sync', 'watch']);
+gulp.task('default', ['htmlDev', 'js', 'sassDev', 'browser-sync', 'watch']);
