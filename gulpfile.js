@@ -7,12 +7,12 @@ var pkg = require('./package.json');
 
 var paths = {
 	html: [
-	    './index.html'
+	    'app/**/*.html'
 	],
 	js: [
 	    './jquery-3.2.1.js',
 	    './angular.js',
-	    './app.js'
+	    'app/**/*.js'
 	],
 	sass: [
 	    'stylesheets/_bootstrap.scss'       
