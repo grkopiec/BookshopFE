@@ -17,7 +17,7 @@ var paths = {
 	    'app/**/*.js'
 	],
 	sass: [
-	    'stylesheets/_bootstrap.scss'       
+	    'app/styles/_bootstrap.scss'       
 	]
 }
 
