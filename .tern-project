@@ -1,13 +1,5 @@
 {
   "ecmaVersion": 5,
-  "ide": {
-    "scriptPaths": [
-      {
-        "type": "FILE",
-        "path": "app.js"
-      }
-    ]
-  },
   "plugins": {
     "guess-types": {
       

@@ -10,8 +10,10 @@ var paths = {
 	    'app/**/*.html'
 	],
 	js: [
-	    './jquery-3.2.1.js',
-	    './angular.js',
+	    'bower_components/jquery/dist/jquery.js',
+	    'bower_components/bootstrap/dist/js/bootstrap.js',
+	    'bower_components/angular/angular.js',
+	    'bower_components/angular-route/angular-route.js',
 	    'app/**/*.js'
 	],
 	sass: [

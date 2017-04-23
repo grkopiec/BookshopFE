@@ -1,0 +1,19 @@
+{
+  "name": "bookshop",
+  "description": "Site for bookshop that keeps its data on java backend",
+  "main": "app.js",
+  "authors": [
+    "grzesiek"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "bookshop"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "bootstrap": "^3.3.7"
+  }
+}
