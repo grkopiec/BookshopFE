@@ -4,6 +4,11 @@ angular.module('bookshop').config(function($routeProvider, $locationProvider) {
 		controllerAs: 'homeCtrl',
 		templateUrl: 'core/home/home.tpl.html'
 	})
+	.when('/products', {
+		controller: 'productsController',
+		controllerAs: 'productsCtrl',
+		templateUrl: 'core/products/products.tpl.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

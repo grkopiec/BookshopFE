@@ -14,7 +14,9 @@ var paths = {
 	    'bower_components/bootstrap/dist/js/bootstrap.js',
 	    'bower_components/angular/angular.js',
 	    'bower_components/angular-route/angular-route.js',
-	    'app/**/*.js'
+	    'app/app.mdl.js',
+	    'app/app.rout.js',
+	    'app/*/**/*.js'
 	],
 	sass: [
 	    'app/styles/_bootstrap.scss'       

@@ -1,3 +1,3 @@
-angular.module('bookshop').controller('homeController', function($scope) {
-	$scope.text = 'Hello world';
+angular.module('bookshop').controller('homeController', function($scope, locationService) {
+	this.goProducts = locationService.goProducts;
 });
