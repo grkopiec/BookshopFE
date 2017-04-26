@@ -11,7 +11,7 @@ var paths = {
 	],
 	js: [
 	    'bower_components/jquery/dist/jquery.js',
-	    'bower_components/bootstrap/dist/js/bootstrap.js',
+	    'bower_components/bootstrap-sass/javascripts/bootstrap.js',
 	    'bower_components/angular/angular.js',
 	    'bower_components/angular-route/angular-route.js',
 	    'app/app.mdl.js',
@@ -19,7 +19,13 @@ var paths = {
 	    'app/*/**/*.js'
 	],
 	sass: [
-	    'app/styles/_bootstrap.scss'       
+	    'app/styles/style.scss'   
+	],
+	sassWatch: [
+	    'app/**/*.scss'
+	],
+	fonts: [
+	    'bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*'
 	]
 }
 
@@ -54,24 +60,30 @@ gulp.task('uglify', function() {
 
 gulp.task('sassDev', function() {
 	gulp.src(paths.sass)
-	.pipe(sass({
-		filename: 'bootstrap.css'
-	}))
-	.pipe(gulp.dest('dist/dev'))
-	.pipe(browserSync.reload({
-		stream: true
-	}));
+			.pipe(sass())
+			.pipe(gulp.dest('dist/dev'))
+			.pipe(browserSync.reload({
+				stream: true
+			}));
 });
 
 gulp.task('sassProd', function() {
 	gulp.src(paths.sass)
-	.pipe(sass({
-		filename: 'bootstrap.css'
-	}))
-	.pipe(gulp.dest('dist/prod')); 
+			.pipe(sass())
+			.pipe(gulp.dest('dist/prod')); 
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('fontsDev', function() {
+	gulp.src(paths.fonts)
+			.pipe(gulp.dest('dist/dev/fonts'))
+});
+
+gulp.task('fontsProd', function() {
+	gulp.src(paths.fonts)
+			.pipe(gulp.dest('dist/prod/fonts'))
+});
+
+gulp.task('browserSync', function() {
 	browserSync.init(null, {
 		server: {
 			baseDir: 'dist/dev'
@@ -82,14 +94,14 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
 	gulp.watch(paths.html, ['htmlDev']);
 	gulp.watch(paths.js, ['js']);
-	gulp.watch(paths.sass, ['sassDev']);
+	gulp.watch(paths.sassWatch, ['sassDev']);
 });
 
 gulp.task('prod', function() {
-	gulp.start(['htmlProd', 'uglify', 'sassProd']);
+	gulp.start(['htmlProd', 'uglify', 'sassProd', 'fontsProd']);
 });
 gulp.task('dev', function() {
 	gulp.start(['default']);
 });
 
-gulp.task('default', ['htmlDev', 'js', 'sassDev', 'browser-sync', 'watch']);
+gulp.task('default', ['htmlDev', 'js', 'sassDev', 'fontsDev', 'browserSync', 'watch']);
