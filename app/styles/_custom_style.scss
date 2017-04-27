@@ -1,8 +1,13 @@
 .icon-lg {
 	font-size: $font-size-base * 16;
 	margin: 25px 0;
+	color: $bookshop-main-color;
 }
 
 .bg-grey {
 	background-color: $gray-lighter;
+}
+
+.bg-bookshop {
+	color: $bookshop-main-color;
 }
