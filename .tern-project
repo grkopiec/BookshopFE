@@ -5,6 +5,10 @@
       {
         "type": "FOLDER",
         "path": "app"
+      },
+      {
+        "type": "FILE",
+        "path": "dist/dev/style.css"
       }
     ]
   },
