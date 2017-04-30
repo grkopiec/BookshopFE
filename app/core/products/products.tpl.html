@@ -1,17 +1,16 @@
 <div class="container">
-	<div ng-bind="productsCtrl.products"></div>
 	<div class="row">
 		<div class="col-sm-3">
 			Categories
 		</div>
 		<div class="col-sm-9">
 			<div class="row list-group">
-				<div class="col-sm-4 list-group-item">
+				<div ng-repeat="product in productsCtrl.products track by $index" class="col-sm-4 list-group-item">
 					<div class="thumbnail">
 						<!-- TODO change alt of img -->
 						<img alt="Product title" src="http://placehold.it/400x250/000/fff">
 						<div class="caption">
-							<h4 class="list-group-item-heading">Product title</h4>
+							<h4 class="list-group-item-heading">{{product.name}}</h4>
 							<p class="list-group-item-text">Author</p>
 							<div class="row">
 								<div class="col-sm-6">

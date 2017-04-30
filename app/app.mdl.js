@@ -1,1 +1,1 @@
-angular.module('bookshop', ['ngRoute']);
+angular.module('bookshop', ['ngRoute', 'ngResource']);

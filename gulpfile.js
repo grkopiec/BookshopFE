@@ -14,6 +14,7 @@ var paths = {
 	    'bower_components/bootstrap-sass/javascripts/bootstrap.js',
 	    'bower_components/angular/angular.js',
 	    'bower_components/angular-route/angular-route.js',
+	    'bower_components/angular-resource/angular-resource.js',
 	    'app/app.mdl.js',
 	    'app/app.rout.js',
 	    'app/*/**/*.js'
