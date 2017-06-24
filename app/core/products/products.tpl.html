@@ -1,10 +1,10 @@
-<div class="container">
+<div id="products" class="container">
 	<div class="row">
 		<div class="col-sm-3">
 			Categories
 		</div>
 		<div class="col-sm-9">
-			<div class="row list-group">
+			<div class="row list-group fix-wrap">
 				<div ng-repeat="product in productsCtrl.products track by $index" class="col-sm-4 list-group-item">
 					<div class="thumbnail">
 						<!-- TODO change alt of img -->
@@ -13,10 +13,10 @@
 							<h4 class="list-group-item-heading">{{product.name}}</h4>
 							<p class="list-group-item-text">{{product.producer}}</p>
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-sm-12 col-lg-6">
 									<p class="lead">{{product.price | currency}}</p>
 								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-12 col-lg-6">
 									<a href="" class="btn btn-success">Add to card</a>
 								</div>
 							</div>

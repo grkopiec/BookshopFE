@@ -1,0 +1,11 @@
+#products {
+	.fix-wrap {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	
+	.list-group-item {
+		border: none;
+	}
+}
