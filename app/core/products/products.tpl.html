@@ -1,7 +1,16 @@
 <div id="products" class="container">
 	<div class="row">
 		<div class="col-sm-3">
-			Categories
+			<nav class="nav-sidebar">
+				<ul class="nav">
+					<li class="active">
+						<a href="">All categories</a>
+					</li>
+					<li ng-repeat="category in productsCtrl.categories track by $index">
+						<a href="">{{category.name}}</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
 		<div class="col-sm-9">
 			<div class="row list-group fix-wrap">
