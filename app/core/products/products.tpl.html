@@ -17,7 +17,7 @@
 				<div ng-repeat="product in productsCtrl.products track by $index" class="col-sm-4 list-group-item">
 					<div class="thumbnail">
 						<!-- TODO change alt of img -->
-						<img alt="Product title" src="http://placehold.it/400x250/000/fff">
+						<img alt="Product title" ng-src="{{productsCtrl.calculateImagePath(product.imagePath)}}">
 						<div class="caption">
 							<h4 class="list-group-item-heading">{{product.name}}</h4>
 							<p class="list-group-item-text">{{product.producer}}</p>
