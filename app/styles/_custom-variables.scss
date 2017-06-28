@@ -7,7 +7,9 @@ $bootstrap-sass-asset-helper: false !default;
 //
 //## Custom variables defined for bookshop project.
 
-$bookshop-main-color:	#61210B;
+$bookshop-main-color:			#61210B;
+$bookshop-text-color:			$bookshop-main-color;
+$bookshop-text-oposite-color:	#fff;
 
 //== Colors
 //
@@ -34,10 +36,12 @@ $brand-danger:          #d9534f !default;
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+//customized
+$text-color:            $bookshop-text-color !default;
 
 //** Global textual link color.
-$link-color:            $brand-primary !default;
+//customized
+$link-color:            $bookshop-text-color !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
@@ -120,7 +124,8 @@ $border-radius-small:       3px !default;
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $brand-primary !default;
+//customized
+$component-active-bg:       $bookshop-text-color !default;
 
 //** Width of the `border` for generating carets that indicate dropdowns.
 $caret-width-base:          4px !default;
@@ -380,11 +385,14 @@ $navbar-default-bg:                #f8f8f8 !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
-$navbar-default-link-color:                #777 !default;
+//customized
+$navbar-default-link-color:                $bookshop-text-color !default;
 $navbar-default-link-hover-color:          #333 !default;
 $navbar-default-link-hover-bg:             transparent !default;
-$navbar-default-link-active-color:         #555 !default;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+//customized
+$navbar-default-link-active-color:         $bookshop-text-oposite-color !default;
+//customized
+$navbar-default-link-active-bg:            $bookshop-main-color !default;
 $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 

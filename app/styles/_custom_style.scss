@@ -1,3 +1,10 @@
+.active > a {
+	color: $bookshop-text-oposite-color;
+}
+.active > a:hover {
+	color: $bookshop-text-color;
+}
+
 .icon-lg {
 	font-size: $font-size-base * 16;
 	margin: 25px 0;
