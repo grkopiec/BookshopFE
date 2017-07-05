@@ -3,11 +3,11 @@
 		<div class="col-sm-3">
 			<nav class="nav-sidebar">
 				<ul class="nav">
-					<li class="active">
-						<a href="">All categories</a>
+					<li ng-class="{active : productsCtrl.activeCategory === 'All categories'}">
+						<a ng-click="productsCtrl.searchByCategory('All categories')" href="">All categories</a>
 					</li>
-					<li ng-repeat="category in productsCtrl.categories track by $index">
-						<a href="">{{category.name}}</a>
+					<li ng-repeat="category in productsCtrl.categories track by $index" ng-class="{active : productsCtrl.activeCategory === category.name}">
+						<a ng-click="productsCtrl.searchByCategory(category.name)" href="">{{category.name}}</a>
 					</li>
 				</ul>
 			</nav>
