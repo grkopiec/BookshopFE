@@ -1,7 +1,7 @@
 <div id="products" class="container">
 	<div class="row">
 		<div class="col-sm-3">
-			<nav class="nav-sidebar">
+			<div class="nav-sidebar">
 				<ul class="nav">
 					<li ng-class="{active : productsCtrl.activeCategory === 'All categories'}">
 						<a ng-click="productsCtrl.searchByCategory('All categories')" href="">All categories</a>
@@ -10,9 +10,33 @@
 						<a ng-click="productsCtrl.searchByCategory(category.name)" href="">{{category.name}}</a>
 					</li>
 				</ul>
-			</nav>
+			</div>
 		</div>
 		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-12">
+					<form class="form-inline">
+						<div class="form-group">
+							<input ng-model="productsCtrl.query.name" ng-change="productsCtrl.search()" type="text" class="form-control" placeholder="Search products" />
+						</div>
+						<div class="form-group">
+							<input ng-model="productsCtrl.query.priceFrom" ng-change="productsCtrl.search()" type="number" class="form-control" placeholder="Price from" min="0" />
+						</div>
+						<div class="form-group">
+							<input ng-model="productsCtrl.query.priceTo" ng-change="productsCtrl.search()" type="number" class="form-control" placeholder="Price to" min="0" />
+						</div>
+						<div class="form-group">
+							<select ng-model="productsCtrl.query.orderBy" ng-change="productsCtrl.search()" class="form-control">
+								<option value="">Order by</option>
+								<option value="NAMEASCENDING">Name ascending</option>
+								<option value="NAMEDESCENDING">Name descending</option>
+								<option value="PRICEASCENDING">Price ascending</option>
+								<option value="PRICEDESCENDING">Price descending</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
 			<div class="row list-group fix-wrap">
 				<div ng-repeat="product in productsCtrl.products track by $index" class="col-sm-4 list-group-item">
 					<div class="thumbnail">
