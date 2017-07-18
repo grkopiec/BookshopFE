@@ -1,0 +1,19 @@
+<div id="cms" class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="nav-sidebar">
+				<ul class="nav">
+					<li ng-class="{active : cmsCtrl.activeTab === 'categories'}">
+						<a ng-click="cmsCtrl.switchTab('categories')" href="">Categories</a>
+					</li>
+					<li ng-class="{active : cmsCtrl.activeTab === 'products'}">
+						<a ng-click="cmsCtrl.switchTab('products')" href="">Products</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			here should be products or categories management
+		</div>
+	</div>
+</div>

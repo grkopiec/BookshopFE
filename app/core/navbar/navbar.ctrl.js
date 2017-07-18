@@ -6,4 +6,5 @@ angular.module('bookshop').controller('navbarController', function($location, lo
 	
 	this.goHome = locationService.goHome;
 	this.goProducts = locationService.goProducts;
+	this.goCms = locationService.goCms;
 });

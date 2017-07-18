@@ -22,6 +22,10 @@
 					<li ng-class="navbarCtrl.navClass('products')">
 						<a ng-click="navbarCtrl.goProducts()" href="">Products</a>
 					</li>
+					<!-- TODO show only for admin -->
+					<li ng-class="navbarCtrl.navClass('cms')">
+						<a ng-click="navbarCtrl.goCms()" href="">Manage</a>
+					</li>
 				</ul>
 				<!-- TODO quick search from navbar -->
 <!-- 				<form class="navbar-form navbar-right" role="search">
