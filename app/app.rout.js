@@ -1,4 +1,4 @@
-angular.module('bookshop').config(function($stateProvider) {
+angular.module('bookshop').config(function($stateProvider, $locationProvider) {
 	$stateProvider.state('home', {
 		url: '/',
 		controller: 'homeController',
@@ -25,4 +25,6 @@ angular.module('bookshop').config(function($stateProvider) {
 		url: '/products',
 		templateUrl: 'core/cms/products/cms-products.tpl.html'
 	});
+	
+	$locationProvider.html5Mode(true);
 });
