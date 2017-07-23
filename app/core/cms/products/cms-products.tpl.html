@@ -1,1 +1,59 @@
-products
+<div class="row">
+	<div class="col-sm-12">
+		<form class="form-inline">
+			<div class="form-group">
+				<input ng-model="productsCtrl.query.name" ng-change="productsCtrl.search()" type="text" class="form-control" placeholder="Search products" />
+			</div>
+			<div class="form-group">
+				<input ng-model="productsCtrl.query.category" ng-change="productsCtrl.search()" type="text" class="form-control" placeholder="Search by category" />
+			</div>
+			<div class="form-group">
+				<input ng-model="productsCtrl.query.priceFrom" ng-change="productsCtrl.search()" type="number" class="form-control" placeholder="Price from" min="0" />
+			</div>
+			<div class="form-group">
+				<input ng-model="productsCtrl.query.priceTo" ng-change="productsCtrl.search()" type="number" class="form-control" placeholder="Price to" min="0" />
+			</div>
+			<div class="form-group">
+				<select ng-model="productsCtrl.query.orderBy" ng-change="productsCtrl.search()" class="form-control">
+					<option value="">Order by</option>
+					<option value="NAMEASCENDING">Name ascending</option>
+					<option value="NAMEDESCENDING">Name descending</option>
+					<option value="PRICEASCENDING">Price ascending</option>
+					<option value="PRICEDESCENDING">Price descending</option>
+				</select>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+				  <th>Image</th>
+				  <th>Name</th>
+				  <th>Price</th>
+				  <th>Actions</th>
+				</tr>
+		    </thead>
+		    <tbody>
+				<tr ng-repeat="product in cmsProductsCtrl.products track by $index">
+					<td>
+						<img alt="Product image" ng-src="{{cmsProductsCtrl.utilService.calculateImagePath(product.imagePath)}}">
+					</td>
+					<td>{{product.name}}</td>
+					<td>{{product.price | currency}}</td>
+					<!-- TODO add action buttons -->
+					<td>
+						<a href="#">
+							<span class="glyphicon glyphicon-edit icon-sm"></span>
+						</a>
+						<a href="#">
+							<span class="glyphicon glyphicon-trash icon-sm"></span>
+						</a>
+					</td>
+				</tr>
+		    </tbody>
+		</table>
+	</div>
+</div>

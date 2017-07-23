@@ -11,6 +11,10 @@
 	color: $bookshop-main-color;
 }
 
+.icon-sm {
+	font-size: $font-size-base * 2;
+}
+
 .bg-grey {
 	background-color: $gray-lighter;
 }
@@ -21,4 +25,19 @@
 
 .nav-sidebar .active {
 	background: $bookshop-main-color;
+}
+
+table {
+	margin-top: 10px;
+
+	th {
+		background-color: $bookshop-main-color;
+		color: $bookshop-text-oposite-color;
+		font-weight: normal;
+	}
+	
+	img {
+		max-width: 50px;
+		max-height: 50px;
+	}
 }
