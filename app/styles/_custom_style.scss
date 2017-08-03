@@ -27,9 +27,15 @@
 	background: $bookshop-main-color;
 }
 
-table {
-	margin-top: 10px;
+form.form-inline {
+	padding-bottom: 10px;
+}
 
+.buttons-content {
+	padding-bottom: 10px;
+}
+
+table {
 	th {
 		background-color: $bookshop-main-color;
 		color: $bookshop-text-oposite-color;

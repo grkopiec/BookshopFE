@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="col-sm-12 buttons-content">
+		<a ui-sref="cms.products" href="" class="btn btn-default">
+			<span class="glyphicon glyphicon-arrow-left"></span>
+			Back
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<form name="cmsProductsCtrl.productForm" ng-submit="cmsProductsCtrl.saveOrUpdate()">
+			<div>
+				<h2 ng-if="cmsProductsCtrl.$stateParams.action === 'add'">Add product</h2>
+				<h2 ng-if="cmsProductsCtrl.$stateParams.action === 'edit'">Edit product</h2>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="name">Name</label>
+				<input class="form-control" name="name" type="text" ng-model="cmsProductsCtrl.product.name" />
+			</div>
+ 			<div class="form-group">
+				<label class="control-label" for="producer">Producer</label>
+				<input class="form-control" name="producer" type="text" ng-model="cmsProductsCtrl.product.producer" />
+			</div>
+ 			<div class="form-group">
+				<label class="control-label" for="description">Description</label>
+				<textarea class="form-control" name="description" ng-model="cmsProductsCtrl.product.description"></textarea>
+			</div>
+ 			<div class="form-group">
+				<label class="control-label" for="price">Price</label>
+				<input class="form-control" name="price" type="number" ng-model="cmsProductsCtrl.product.price" />
+			</div>
+ 			<div class="form-group">
+				<label class="control-label" for="discount">Discount</label>
+				<input class="form-control" name="discount" type="number" ng-model="cmsProductsCtrl.product.discount" />
+			</div>
+ 			<div class="form-group">
+				<label class="control-label" for="category">Category</label>
+				<select class="form-control" name="category" ng-model="cmsProductsCtrl.product.category" ng-options="category.name for category in cmsProductsCtrl.categories track by category.id">
+					<option value="">Select category</option>
+				</select>
+			</div>
+			<div class="form-group clearfix">
+				<input ng-if="cmsProductsCtrl.$stateParams.action === 'add'" type="submit" class="btn btn-success pull-right" value="Add Product">
+				<input ng-if="cmsProductsCtrl.$stateParams.action === 'edit'" type="submit" class="btn btn-success pull-right" value="Edit Product">
+			</div>
+		</form>
+	</div>
+</div>

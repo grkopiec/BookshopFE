@@ -28,7 +28,22 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		url: '/products',
 		controller: 'cmsProductsController',
 		controllerAs: 'cmsProductsCtrl',
-		templateUrl: 'core/cms/products/cms-products.tpl.html'
+		templateUrl: 'core/cms/products/cms-products-list.tpl.html',
+		params: {action: 'list'}
+	})
+	.state('cms.productAdd', {
+		url: '/product/add',
+		controller: 'cmsProductsController',
+		controllerAs: 'cmsProductsCtrl',
+		templateUrl: 'core/cms/products/cms-product-add-edit.tpl.html',
+		params: {action: 'add'}
+	})
+	.state('cms.productEdit', {
+		url: '/product/:productId',
+		controller: 'cmsProductsController',
+		controllerAs: 'cmsProductsCtrl',
+		templateUrl: 'core/cms/products/cms-product-add-edit.tpl.html',
+		params: {action: 'edit'}
 	})
 	.state('otherwise', {
 		redirectTo: '/'
