@@ -7,7 +7,11 @@ angular.module('bookshop').controller('cmsProductsController', function($state, 
 			this.product = {};
 			this.categories = categoriesFactory.query();
 		} else if (this.$stateParams.action === 'edit') {
-			this.product = productsFactory.get({id: $stateParams.productId});
+			var model = this;
+			productsFactory.get({id: $stateParams.productId}).$promise.then(function(product) {
+				utilService.productDotToComma(product);
+				model.product = product;
+			});
 			this.categories = categoriesFactory.query();
 		}
 		this.utilService = utilService;
@@ -15,14 +19,17 @@ angular.module('bookshop').controller('cmsProductsController', function($state, 
 	this.init();
 	
 	this.saveOrUpdate = function() {
-		if (angular.isDefined(this.product.id)) {
-			productsFactory.update(this.product.id, this.product).$promise.finally(function() {
-				$state.go('cms.products');
-			});
-		} else {
-			productsFactory.save(this.product).$promise.finally(function() {
-				$state.go('cms.products');
-			});
+		if (this.productForm.$valid) {
+			utilService.productCommaToDot(this.product);
+			if (angular.isDefined(this.product.id)) {
+				productsFactory.update(this.product.id, this.product).$promise.finally(function() {
+					$state.go('cms.products');
+				});
+			} else {
+				productsFactory.save(this.product).$promise.finally(function() {
+					$state.go('cms.products');
+				});
+			}
 		}
 	}
 	this.remove = function(productId) {

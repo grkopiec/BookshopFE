@@ -52,7 +52,7 @@
 						<img alt="Product image" ng-src="{{cmsProductsCtrl.utilService.calculateImagePath(product.imagePath)}}">
 					</td>
 					<td>{{product.name}}</td>
-					<td>{{product.price | currency}}</td>
+					<td>{{cmsProductsCtrl.utilService.formatPrice(product.price)}}</td>
 					<td>
 						<a ui-sref="cms.productEdit({productId: product.id})" href="">
 							<span class="glyphicon glyphicon-edit icon-sm"></span>
