@@ -22,6 +22,8 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 	})
 	.state('cms.categories', {
 		url: '/categories',
+		controller: 'cmsCategoriesController',
+		controllerAs: 'cmsCategoriesCtrl',
 		templateUrl: 'core/cms/categories/cms-categories.tpl.html'
 	})
 	.state('cms.products', {

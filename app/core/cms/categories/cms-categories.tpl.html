@@ -1,1 +1,67 @@
-categories
+<div class="row">
+	<div class="col-sm-12">
+		<div class="buttons-content clearfix">
+			<a class="btn btn-success pull-right" href="" ng-click="cmsCategoriesCtrl.addOrEdit()">
+				<span class="glyphicon glyphicon-plus"></span>
+				Add category
+			</a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+				  <th>Name</th>
+				  <th>Actions</th>
+				</tr>
+		    </thead>
+		    <tbody>
+				<tr ng-repeat="category in cmsCategoriesCtrl.categories track by $index">
+					<td ng-if="category.action === undefined">{{category.name}}</td>
+					<td ng-if="category.action === 'edit'">
+						<form name="cmsCategoriesCtrl.categoryForm">
+							<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsCategoriesCtrl.tempCategory.name" />
+							<div class="help-block" ng-messages="cmsCategoriesCtrl.categoryForm.name.$error" ng-show="cmsCategoriesCtrl.categoryForm.name.$touched">
+								<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+							</div>
+						</form>
+					</td>
+					<td>
+						<a href="" ng-if="category.action === undefined" ng-click="cmsCategoriesCtrl.addOrEdit($index)">
+							<span class="glyphicon glyphicon-edit icon-sm"></span>
+						</a>
+						<a href="" ng-if="category.action === undefined" ng-click="cmsCategoriesCtrl.remove(category.id)">
+							<span class="glyphicon glyphicon-trash icon-sm"></span>
+						</a>
+						<a href="" ng-if="category.action === 'edit'" ng-click="cmsCategoriesCtrl.saveOrUpdate($index)">
+							<span class="glyphicon glyphicon-pencil icon-sm"></span>
+						</a>
+						<a href="" ng-if="category.action === 'edit'" ng-click="cmsCategoriesCtrl.cancelAddOrEdit($index)">
+							<span class="glyphicon glyphicon-remove icon-sm"></span>
+						</a>
+					</td>
+				</tr>
+				<tr ng-if="cmsCategoriesCtrl.action === 'add'">
+					<td>
+						<form name="cmsCategoriesCtrl.categoryForm">
+							<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsCategoriesCtrl.tempCategory.name" />
+							<div class="help-block" ng-messages="cmsCategoriesCtrl.categoryForm.name.$error" ng-show="cmsCategoriesCtrl.categoryForm.name.$touched">
+								<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+							</div>
+						</form>
+					</td>
+					<td>
+						<a href="" ng-click="cmsCategoriesCtrl.saveOrUpdate()">
+							<span class="glyphicon glyphicon-floppy-disk icon-sm"></span>
+						</a>
+						<a href="" ng-click="cmsCategoriesCtrl.cancelAddOrEdit()">
+							<span class="glyphicon glyphicon-remove icon-sm"></span>
+						</a>
+					</td>
+				</tr>
+		    </tbody>
+		</table>
+	</div>
+</div>
