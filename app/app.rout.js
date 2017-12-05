@@ -8,6 +8,12 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		controllerAs: 'homeCtrl',
 		templateUrl: 'core/home/home.tpl.html'
 	})
+	.state('login', {
+		url: '/login',
+		controller: 'loginController',
+		controllerAs: 'loginCtrl',
+		templateUrl: 'core/login/login.tpl.html'
+	})
 	.state('products', {
 		url: '/products',
 		controller: 'productsController',

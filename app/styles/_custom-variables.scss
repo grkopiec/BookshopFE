@@ -505,7 +505,8 @@ $pager-disabled-color:                 $pagination-disabled-color !default;
 //##
 
 $jumbotron-padding:              30px !default;
-$jumbotron-color:                inherit !default;
+//customized
+$jumbotron-color:                $bookshop-text-oposite-color !default;
 //customized
 $jumbotron-bg:                   $bookshop-main-color;
 //customized
