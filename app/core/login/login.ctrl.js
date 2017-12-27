@@ -1,6 +1,6 @@
 angular.module('bookshop').controller('loginController', function($http, $state, serverUrlValue) {
 	this.init = function() {
-		this.login = {};
+		this.loginData = {};
 	}
 	this.init();
 	
@@ -9,8 +9,8 @@ angular.module('bookshop').controller('loginController', function($http, $state,
 			url: serverUrlValue + '/bookshop/auth',
 			method: 'POST',
 			data: {
-				username: this.login.username,
-				password: this.login.password
+				username: this.loginData.username,
+				password: this.loginData.password
 			}
 		}).then(function(token) {
 			$http.defaults.headers.common['Authorization'] = 'Bearer ' + token.data.token;

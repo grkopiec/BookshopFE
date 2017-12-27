@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+	<h1>Registration page</h1> 
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+			<form name="registerCtrl.registerForm" ng-submit="registerCtrl.register()">
+				<div>
+					<h2>Create Your new account in our shop</h2>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.username.$invalid && registerCtrl.registerForm.username.$touched, 'has-success': registerCtrl.registerForm.username.$valid && registerCtrl.registerForm.username.$touched}">
+					<label class="control-label" for="username">Login</label>
+					<input class="form-control" name="username" type="text" ng-required="true" ng-minlength="4" ng-maxlength="30" ng-model="registerCtrl.registerData.username" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.username.$error" ng-show="registerCtrl.registerForm.username.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.password.$invalid && registerCtrl.registerForm.password.$touched, 'has-success': registerCtrl.registerForm.password.$valid && registerCtrl.registerForm.password.$touched}">
+					<label class="control-label" for="password">Password</label>
+					<input class="form-control" name="password" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" ng-model="registerCtrl.registerData.password" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.password.$error" ng-show="registerCtrl.registerForm.password.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.repeatPassword.$invalid && registerCtrl.registerForm.repeatPassword.$touched, 'has-success': registerCtrl.registerForm.repeatPassword.$valid && registerCtrl.registerForm.repeatPassword.$touched}">
+					<label class="control-label" for="repeatPassword">Repeat Password</label>
+					<input class="form-control" name="repeatPassword" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" bs-compare-to="registerCtrl.registerData.password" ng-model="registerCtrl.registerData.repeatPassword" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.repeatPassword.$error" ng-show="registerCtrl.registerForm.repeatPassword.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+				<div class="form-group clearfix">
+					<input type="submit" class="btn btn-success pull-right" value="Add Product">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
