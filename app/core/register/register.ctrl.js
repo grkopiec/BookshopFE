@@ -1,4 +1,4 @@
-angular.module('bookshop').controller('registerController', function($http, $state, serverUrlValue) {
+angular.module('bookshop').controller('registerController', function($http, $state, userService, serverUrlValue) {
 	this.init = function() {
 		this.registerData = {};
 	}
@@ -14,6 +14,7 @@ angular.module('bookshop').controller('registerController', function($http, $sta
 			}
 		}).then(function(token) {
 			$http.defaults.headers.common['Authorization'] = 'Bearer ' + token.data.token;
+			userService.user = token.data;
 			$state.go('home');
 		});
 	}
