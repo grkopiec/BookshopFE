@@ -1,2 +1,2 @@
-angular.module('bookshop').controller('homeController', function($scope) {
+angular.module('bookshop').controller('homeController', function() {
 });

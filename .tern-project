@@ -19,13 +19,13 @@
     "outline": {
       
     },
-    "node": {
+    "gulp": {
+      
+    },
+    "jasmine": {
       
     },
     "angular1": {
-      
-    },
-    "gulp": {
       
     },
     "bootstrap": {
@@ -33,7 +33,6 @@
     }
   },
   "libs": [
-    "browser",
-    "jquery"
+    "browser"
   ]
 }
