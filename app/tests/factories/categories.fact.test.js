@@ -6,7 +6,7 @@ describe('test suite for bookskhop application', function() {
 		
 		var httpBackend;
 		var categoriesFact;
-		var serverUrlValue;
+		var serverUrlVal;
 		
 		beforeEach(function() {
 			inject(function($httpBackend, categoriesFactory, serverUrlValue) {
