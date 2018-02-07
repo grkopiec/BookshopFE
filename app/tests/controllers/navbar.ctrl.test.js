@@ -4,7 +4,7 @@ describe('test suite for bookskhop application', function() {
 			module('bookshop');
 		});
 	
-//		it('test if variables are initialize',function() {
+//		it('test if variables are initialize', function() {
 //			var scope = {};
 //			var navbarCtrl;
 //			inject(function($controller) {

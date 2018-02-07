@@ -23,7 +23,7 @@ describe('test suite for bookskhop application', function() {
 			});
 		});
 	
-		it('test positive compare result if both input fields values are equal',function() {
+		it('test positive compare result if both input fields values are equal', function() {
 			rootScope.object = {field1: 'theSame', field2: 'theSame'}
 			var element = angular.element(html);
 			compile(element)(rootScope);
@@ -31,7 +31,7 @@ describe('test suite for bookskhop application', function() {
 			expect(rootScope.form.$valid).toBeTruthy();
 		});
 		
-		it('test negative compare result if both input fields values are not equal',function() {
+		it('test negative compare result if both input fields values are not equal', function() {
 			rootScope.object = {field1: 'theSame', field2: 'notTheSame'}
 			var element = angular.element(html);
 			compile(element)(rootScope);
