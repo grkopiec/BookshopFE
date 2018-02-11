@@ -17,10 +17,9 @@ describe('test suite for bookskhop application', function() {
 		});
 		
 		it('test initialize property', function() {
-			var object = {
-				property: 'value'
-			}
-			userSrv.user = object;
+			var object = {}
+			userSrv.init();
+			
 			expect(userSrv.user).toEqual(object);
 		});
 	});
