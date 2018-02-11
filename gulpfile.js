@@ -18,7 +18,8 @@ var paths = {
 	    'bower_components/angular-messages/angular-messages.js',
 	    'app/app.mdl.js',
 	    'app/app.rout.js',
-	    'app/*/**/*.js'
+	    'app/*/**/*.js',
+	    '!app/tests/**/*.js'
 	],
 	sass: [
 	    'app/styles/style.scss'   
