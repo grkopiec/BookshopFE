@@ -1,4 +1,4 @@
-angular.module('bookshop').controller('cmsController', function($scope) {
+angular.module('bookshop').controller('cmsController', function() {
 	this.init = function() {
 		this.activeTab = 'categories';
 	}
