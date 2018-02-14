@@ -5,11 +5,13 @@ describe('test suite for bookskhop application', function() {
 		});
 		
 		var cmsCategoriesCtrl;
+		var q;
 		var categoriesFact;
 		
 		beforeEach(function() {
-			inject(function($controller, categoriesFactory) {
+			inject(function($controller, $q, categoriesFactory) {
 				cmsCategoriesCtrl = $controller('cmsCategoriesController');
+				q = $q;
 				categoriesFact = categoriesFactory;
 			});
 		});
@@ -21,7 +23,9 @@ describe('test suite for bookskhop application', function() {
 			var returnObject = {
 				property: 'value'
 			};
+			
 			spyOn(categoriesFact, 'query').and.returnValue(returnObject);
+			
 			cmsCategoriesCtrl.init();
 			
 			expect(categoriesFact.query).toHaveBeenCalled();
@@ -103,6 +107,73 @@ describe('test suite for bookskhop application', function() {
 			//should not have been called two method from categoriesFactory
 			expect(categoriesFact.update).not.toHaveBeenCalled();
 			expect(categoriesFact.save).not.toHaveBeenCalled();
+		});
+		
+		it('test saveOrUpdate() method when categoryForm is valid and not passed index', function() {
+			cmsCategoriesCtrl.categoryForm = {
+				$valid: true
+			};
+			cmsCategoriesCtrl.tempCategory = 'Books';
+			
+			spyOn(categoriesFact, 'update');
+			spyOn(categoriesFact, 'save').and.callFake(function() {
+		        var deferred = q.defer();
+		        deferred.resolve('OK');
+		        deferred.$promise = deferred.promise;
+		        return deferred;
+			});
+			
+			cmsCategoriesCtrl.saveOrUpdate();
+			
+			expect(categoriesFact.update).not.toHaveBeenCalled();
+			//should have been called save method of categoriesFactory
+			expect(categoriesFact.save).toHaveBeenCalled();
+		});
+		
+		it('test saveOrUpdate() method when categoryForm is valid and passed as argument index', function() {
+			var categoryName = 'Toys';
+			
+			cmsCategoriesCtrl.categories = [
+				{
+					id: 0,
+					name: 'Books'
+				}
+			];
+			cmsCategoriesCtrl.tempCategory.name = categoryName;
+			cmsCategoriesCtrl.categoryForm = {
+				$valid: true
+			};
+			
+			spyOn(categoriesFact, 'update').and.callFake(function() {
+		        var deferred = q.defer();
+		        deferred.resolve('OK');
+		        deferred.$promise = deferred.promise;
+		        return deferred;
+			});
+			spyOn(categoriesFact, 'save');
+			
+			cmsCategoriesCtrl.saveOrUpdate(cmsCategoriesCtrl.categories[0].id);
+			
+			expect(cmsCategoriesCtrl.categories[0].name).toEqual(categoryName);
+			//should have been called update method of categoriesFactory
+			expect(categoriesFact.update).toHaveBeenCalled();
+			expect(categoriesFact.save).not.toHaveBeenCalled();
+		});
+		
+		it('test remove() method for particular categoryId', function() {
+			var object = {
+				id: 0
+			};
+			spyOn(categoriesFact, 'delete').and.callFake(function() {
+		        var deferred = q.defer();
+		        deferred.resolve('OK');
+		        deferred.$promise = deferred.promise;
+		        return deferred;
+			});
+			
+			cmsCategoriesCtrl.remove(object.id);
+			
+			expect(categoriesFact.delete).toHaveBeenCalledWith(object);
 		});
 	});
 });
