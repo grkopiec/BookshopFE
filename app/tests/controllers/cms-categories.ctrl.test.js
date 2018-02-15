@@ -164,6 +164,7 @@ describe('test suite for bookskhop application', function() {
 			var object = {
 				id: 0
 			};
+			
 			spyOn(categoriesFact, 'delete').and.callFake(function() {
 		        var deferred = q.defer();
 		        deferred.resolve('OK');
