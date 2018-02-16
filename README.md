@@ -1,10 +1,10 @@
 ## Project Bookshop
 
-This is repository with application that shows my experimentals creations of angular application. This is frontend part of application, for *BookshopFE* repository is *java* backend. This project has been crated ratrer for learning purpouses.
+This is repository with application that shows my experimental creations of angular application. This is frontend part of application, for *BookshopFE* repository is *java* backend. This project has been created rather for learning purposes.
 
 ## Description
 
-Project has typical tools for shop. It comunicates with backend using angular *resource* service. Aplication according with good practicles have one main module to which are pinned rest elements like frameworks, controllers, services etc.
+Project has typical tools for shop. It communicates with backend using angular *resource* service. Application according with good practices have one main module to which are pinned rest elements like frameworks, controllers, services etc.
 
 ## Motivation
 
@@ -12,7 +12,7 @@ My motivation to create this project is ability to learn.
 
 ## Code style
 
-Regarding best practicles I try use them in any aspect of project
+Regarding best practices I try use them in any aspect of project
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/standard)
 
 ## Technology/Frameworks/Tools used
@@ -25,13 +25,13 @@ Regarding best practicles I try use them in any aspect of project
 
 ## On what I am currently working
 
-Currently I am working on establish loging and registering users.
+Currently I am working on establish logging and registering users.
 
 ## What next
 
 In feature I plan to upgrade project to next versions of angular. But first of all I need provide all elementary show features.
 
-## Instalation
+## Installation
 
 #### Tools to install
 
@@ -66,11 +66,11 @@ After this command all tools should be installed then time to download required 
 npm update
 bower update
 ```
-When all commands passed then project should be done and project can be open in preffered ide
+When all commands passed then project should be done and project can be open in preferred ide
 
 #### Run project
 
-To run project in command protompt run this command
+To run project in command prompt run this command
 
 ```code
 gulp
@@ -80,4 +80,13 @@ This command should build project and run it in browser, for properly project wo
 
 ## Run tests
 
-Test are not prepare yet, but will be ;)
+In order to run tests for application install globally all necessary programs
+
+```code
+npm install -g karma-cli
+```
+After install all necessary things go to project main directory and run command
+
+```code
+karma start karma.conf.js
+```
