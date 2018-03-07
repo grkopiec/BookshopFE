@@ -66,6 +66,13 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		templateUrl: 'core/cms/users/cms-users-list.tpl.html',
 		params: {action: 'list'}
 	})
+	.state('cms.userAdd', {
+		url: '/users/add',
+		controller: 'cmsUsersController',
+		controllerAs: 'cmsUsersCtrl',
+		templateUrl: 'core/cms/users/cms-user-add-edit.tpl.html',
+		params: {action: 'add'}
+	})
 	.state('otherwise', {
 		redirectTo: '/'
 	});
