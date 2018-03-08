@@ -70,7 +70,7 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		url: '/users/add',
 		controller: 'cmsUsersController',
 		controllerAs: 'cmsUsersCtrl',
-		templateUrl: 'core/cms/users/cms-user-add-edit.tpl.html',
+		templateUrl: 'core/cms/users/cms-user-add.tpl.html',
 		params: {action: 'add'}
 	})
 	.state('otherwise', {

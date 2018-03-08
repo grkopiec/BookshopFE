@@ -1,9 +1,8 @@
 angular.module('bookshop').controller('cmsUsersController', function($stateParams, usersFactory) {
 	this.init = function() {
-		this.$stateParams = $stateParams;
-		if (this.$stateParams.action === 'list') {
+		if ($stateParams.action === 'list') {
 			this.usersData = usersFactory.query();
-		} else if (this.$stateParams === 'add') {
+		} else if ($stateParams === 'add') {
 			this.userData = {};
 		}
 	}
