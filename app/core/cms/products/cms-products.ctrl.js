@@ -32,6 +32,7 @@ angular.module('bookshop').controller('cmsProductsController', function($state, 
 			}
 		}
 	}
+	
 	this.remove = function(productId) {
 		var model = this;
 		productsFactory.delete({id: productId}).$promise.then(function() {
