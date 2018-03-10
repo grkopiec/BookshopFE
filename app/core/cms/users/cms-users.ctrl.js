@@ -1,4 +1,4 @@
-angular.module('bookshop').controller('cmsUsersController', function($stateParams, usersFactory) {
+angular.module('bookshop').controller('cmsUsersController', function($state, $stateParams, usersFactory) {
 	this.init = function() {
 		if ($stateParams.action === 'list') {
 			this.usersData = usersFactory.query();
@@ -9,7 +9,11 @@ angular.module('bookshop').controller('cmsUsersController', function($stateParam
 	this.init();
 	
 	this.save = function() {
-		
+		if (this.productForm.$valid) {
+			usersFactory.save(this.product).$promise.finally(function() {
+				$state.go('cms.users');
+			});
+		}
 	}
 	
 	this.remove = function(userId) {
