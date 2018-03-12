@@ -9,8 +9,8 @@ angular.module('bookshop').controller('cmsUsersController', function($state, $st
 	this.init();
 	
 	this.save = function() {
-		if (this.productForm.$valid) {
-			usersFactory.save(this.product).$promise.finally(function() {
+		if (this.userForm.$valid) {
+			usersFactory.save(this.userData).$promise.finally(function() {
 				$state.go('cms.users');
 			});
 		}
