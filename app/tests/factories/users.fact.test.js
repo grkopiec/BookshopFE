@@ -37,7 +37,7 @@ describe('test suite for bookskhop application', function() {
 		});
 		
 		it('test resource save call', function() {
-			httpBackend.expectPOST(serverUrlVal + '/bookshop/users', {name: 'Username'}).respond(200);
+			httpBackend.expectPOST(serverUrlVal + '/bookshop/users/admin', {name: 'Username'}).respond(200);
 			usersFact.save({name: 'Username'});
 			httpBackend.flush();
 		});
