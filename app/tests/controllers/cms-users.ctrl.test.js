@@ -65,9 +65,9 @@ describe('test suite for bookskhop application', function() {
 			
 			spyOn(usersFact, 'save').and.callFake(function() {
 				var deferred = q.defer();
-		        deferred.resolve('OK');
-		        deferred.$promise = deferred.promise;
-		        return deferred;
+		    	deferred.resolve('OK');
+		    	deferred.$promise = deferred.promise;
+		    	return deferred;
 			});
 			
 			cmsUsersCtrl.save();
@@ -82,10 +82,10 @@ describe('test suite for bookskhop application', function() {
 			};
 			
 			spyOn(usersFact, 'delete').and.callFake(function() {
-		        var deferred = q.defer();
-		        deferred.resolve('OK');
-		        deferred.$promise = deferred.promise;
-		        return deferred;
+				var deferred = q.defer();
+		    	deferred.resolve('OK');
+		    	deferred.$promise = deferred.promise;
+		    	return deferred;
 			});
 			
 			cmsUsersCtrl.remove(object.id);
