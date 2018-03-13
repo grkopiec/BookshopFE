@@ -2,7 +2,7 @@ angular.module('bookshop').controller('cmsUsersController', function($state, $st
 	this.init = function() {
 		if ($stateParams.action === 'list') {
 			this.usersData = usersFactory.query();
-		} else if ($stateParams === 'add') {
+		} else if ($stateParams.action === 'add') {
 			this.userData = {};
 		}
 	}
