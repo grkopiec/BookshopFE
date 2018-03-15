@@ -11,22 +11,78 @@
 				</div>
 	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.username.$invalid && registerCtrl.registerForm.username.$touched, 'has-success': registerCtrl.registerForm.username.$valid && registerCtrl.registerForm.username.$touched}">
 					<label class="control-label" for="username">Login</label>
-					<input class="form-control" name="username" type="text" ng-required="true" ng-minlength="4" ng-maxlength="30" ng-model="registerCtrl.registerData.username" />
+					<input class="form-control" name="username" type="text" ng-required="true" ng-minlength="2" ng-maxlength="30" ng-model="registerCtrl.userData.user.username" />
 					<div class="help-block" ng-messages="registerCtrl.registerForm.username.$error" ng-show="registerCtrl.registerForm.username.$touched">
 						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 					</div>
 				</div>
 	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.password.$invalid && registerCtrl.registerForm.password.$touched, 'has-success': registerCtrl.registerForm.password.$valid && registerCtrl.registerForm.password.$touched}">
 					<label class="control-label" for="password">Password</label>
-					<input class="form-control" name="password" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" ng-model="registerCtrl.registerData.password" />
+					<input class="form-control" name="password" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" ng-model="registerCtrl.userData.user.password" />
 					<div class="help-block" ng-messages="registerCtrl.registerForm.password.$error" ng-show="registerCtrl.registerForm.password.$touched">
 						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 					</div>
 				</div>
 	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.repeatPassword.$invalid && registerCtrl.registerForm.repeatPassword.$touched, 'has-success': registerCtrl.registerForm.repeatPassword.$valid && registerCtrl.registerForm.repeatPassword.$touched}">
 					<label class="control-label" for="repeatPassword">Repeat Password</label>
-					<input class="form-control" name="repeatPassword" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" bs-compare-to="registerCtrl.registerData.password" ng-model="registerCtrl.registerData.repeatPassword" />
+					<input class="form-control" name="repeatPassword" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" bs-compare-to="registerCtrl.userData.user.password" ng-model="registerCtrl.userData.user.repeatPassword" />
 					<div class="help-block" ng-messages="registerCtrl.registerForm.repeatPassword.$error" ng-show="registerCtrl.registerForm.repeatPassword.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.name.$invalid && registerCtrl.registerForm.name.$touched, 'has-success': registerCtrl.registerForm.name.$valid && registerCtrl.registerForm.name.$touched}">
+					<label class="control-label" for="name">Name</label>
+					<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="registerCtrl.userData.userDetails.name" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.name.$error" ng-show="registerCtrl.registerForm.name.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.surname.$invalid && registerCtrl.registerForm.surname.$touched, 'has-success': registerCtrl.registerForm.surname.$valid && registerCtrl.registerForm.surname.$touched}">
+					<label class="control-label" for="surname">Surname</label>
+					<input class="form-control" name="surname" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="registerCtrl.userData.userDetails.surname" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.surname.$error" ng-show="registerCtrl.registerForm.surname.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.email.$invalid && registerCtrl.registerForm.email.$touched, 'has-success': registerCtrl.registerForm.email.$valid && registerCtrl.registerForm.email.$touched}">
+					<label class="control-label" for="email">Email</label>
+					<input class="form-control" name="email" type="email" ng-required="true" ng-minlength="5" ng-maxlength="70" ng-model="registerCtrl.userData.userDetails.email" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.email.$error" ng-show="registerCtrl.registerForm.email.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.phone.$invalid && registerCtrl.registerForm.phone.$touched, 'has-success': registerCtrl.registerForm.phone.$valid && registerCtrl.registerForm.phone.$touched}">
+					<label class="control-label" for="phone">Phone</label>
+					<input class="form-control" name="phone" type="tel" ng-required="true" ng-minlength="5" ng-maxlength="15" ng-model="registerCtrl.userData.userDetails.phone" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.phone.$error" ng-show="registerCtrl.registerForm.phone.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.city.$invalid && registerCtrl.registerForm.city.$touched, 'has-success': registerCtrl.registerForm.city.$valid && registerCtrl.registerForm.city.$touched}">
+					<label class="control-label" for="city">City</label>
+					<input class="form-control" name="city" type="text" ng-required="true" ng-minlength="2" ng-maxlength="40" ng-model="registerCtrl.userData.userDetails.city" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.city.$error" ng-show="registerCtrl.registerForm.city.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.street.$invalid && registerCtrl.registerForm.street.$touched, 'has-success': registerCtrl.registerForm.street.$valid && registerCtrl.registerForm.street.$touched}">
+					<label class="control-label" for="street">Street</label>
+					<input class="form-control" name="street" type="text" ng-required="true" ng-minlength="5" ng-maxlength="50" ng-model="registerCtrl.userData.userDetails.street" />
+					<div class="help-block" ng-messages="registerCtrl.street.$error" ng-show="registerCtrl.street.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.userDetails.state.$invalid && registerCtrl.registerForm.userDetails.state.$touched, 'has-success': registerCtrl.registerForm.state.$valid && registerCtrl.registerForm.state.$touched}">
+					<label class="control-label" for="state">State</label>
+					<input class="form-control" name="state" type="text" ng-minlength="2" ng-maxlength="40" ng-model="registerCtrl.userData.userDetails.state" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.state.$error" ng-show="registerCtrl.registerForm.state.$touched">
+						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+					</div>
+				</div>
+	 			<div class="form-group" ng-class="{'has-error': registerCtrl.registerForm.zipCode.$invalid && registerCtrl.registerForm.zipCode.$touched, 'has-success': registerCtrl.registerForm.zipCode.$valid && registerCtrl.registerForm.zipCode.$touched}">
+					<label class="control-label" for="zipCode">Zip code</label>
+					<input class="form-control" name="zipCode" type="text" ng-required="true" ng-minlength="5" ng-maxlength="7" ng-model="registerCtrl.userData.userDetails.zipCode" />
+					<div class="help-block" ng-messages="registerCtrl.registerForm.zipCode.$error" ng-show="registerCtrl.registerForm.zipCode.$touched">
 						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 					</div>
 				</div>
