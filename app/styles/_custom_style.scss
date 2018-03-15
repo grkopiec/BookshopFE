@@ -27,8 +27,15 @@
 	background: $bookshop-main-color;
 }
 
-form.form-inline {
-	padding-bottom: 10px;
+form {
+	&.form-inline {
+		padding-bottom: 10px;
+	}
+
+	.form-group.required .control-label:after {
+		content: '*';
+		color: red;
+	}
 }
 
 .buttons-content {
