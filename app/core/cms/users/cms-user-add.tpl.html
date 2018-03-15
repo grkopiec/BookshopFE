@@ -14,7 +14,7 @@
 			</div>
 			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.username.$invalid && cmsUsersCtrl.userForm.username.$touched, 'has-success': cmsUsersCtrl.userForm.username.$valid && cmsUsersCtrl.userForm.username.$touched}">
 				<label class="control-label" for="username">Username</label>
-				<input class="form-control" name="username" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsUsersCtrl.userData.user.username" />
+				<input class="form-control" name="username" type="text" ng-required="true" ng-minlength="2" ng-maxlength="30" ng-model="cmsUsersCtrl.userData.user.username" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userForm.username.$error" ng-show="cmsUsersCtrl.userForm.username.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
@@ -35,14 +35,14 @@
 			</div>
  			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.name.$invalid && cmsUsersCtrl.userForm.name.$touched, 'has-success': cmsUsersCtrl.userForm.name.$valid && cmsUsersCtrl.userForm.name.$touched}">
 				<label class="control-label" for="name">Name</label>
-				<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsUsersCtrl.userData.userDetails.name" />
+				<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="cmsUsersCtrl.userData.userDetails.name" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userForm.name.$error" ng-show="cmsUsersCtrl.userForm.name.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
  			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.surname.$invalid && cmsUsersCtrl.userForm.surname.$touched, 'has-success': cmsUsersCtrl.userForm.surname.$valid && cmsUsersCtrl.userForm.surname.$touched}">
 				<label class="control-label" for="surname">Surname</label>
-				<input class="form-control" name="surname" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsUsersCtrl.userData.userDetails.surname" />
+				<input class="form-control" name="surname" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="cmsUsersCtrl.userData.userDetails.surname" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userForm.surname.$error" ng-show="cmsUsersCtrl.userForm.surname.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
