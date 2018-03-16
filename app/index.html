@@ -45,6 +45,11 @@
 							Loged as <strong ng-bind="navbarCtrl.userService.user.username"></strong>
 						</p>
 					</li>
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
+									&& navbarCtrl.userService.user.roles.includes('ROLE_ADMIN') === false"
+							ui-sref-active="active">
+						<a ui-sref="user-panel" href="">Manage account</a>
+					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false">
 						<a ng-click="navbarCtrl.logout()" href="">Logout</a>
 					</li>

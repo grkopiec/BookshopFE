@@ -1,6 +1,8 @@
 angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	//if user redirect to /cms show by default /categories nested state
 	$urlRouterProvider.when('/cms', '/cms/categories');
+	//if user redirect to /user-panel show by default /data nested state
+	$urlRouterProvider.when('/user-panel', '/user-panel/data');
 	
 	$stateProvider.state('home', {
 		url: '/',
@@ -25,6 +27,18 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		controller: 'productsController',
 		controllerAs: 'productsCtrl',
 		templateUrl: 'core/products/products.tpl.html'
+	})
+	.state('user-panel', {
+		url: '/user-panel',
+		controller: 'userPanelController',
+		controllerAs: 'userPanelCtrl',
+		templateUrl: 'core/user-panel/user-panel.tpl.html'
+	})
+	.state('user-panel.data', {
+		url: '/data',
+		controller: 'userDataController',
+		controllerAs: 'userDataCtrl',
+		templateUrl: 'core/user-panel/data/user-data.tpl.html'
 	})
 	.state('cms', {
 		url: '/cms',
