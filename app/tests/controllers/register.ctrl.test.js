@@ -29,7 +29,7 @@ describe('test suite for bookskhop application', function() {
 			
 			registerCtrl.init();
 			
-			expect(registerCtrl.registerData).toEqual(object);
+			expect(registerCtrl.userData).toEqual(object);
 			httpBackend.flush();
 		});
 		
