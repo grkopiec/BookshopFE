@@ -22,7 +22,7 @@ angular.module('bookshop').controller('cmsProductsController', function($state, 
 		if (this.productForm.$valid) {
 			utilService.productCommaToDot(this.product);
 			if (angular.isDefined(this.product.id)) {
-				productsFactory.update(this.product.id, this.product).$promise.finally(function() {
+				productsFactory.update({id: this.product.id}, this.product).$promise.finally(function() {
 					$state.go('cms.products');
 				});
 			} else {

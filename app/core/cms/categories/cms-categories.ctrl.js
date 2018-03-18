@@ -31,7 +31,7 @@ angular.module('bookshop').controller('cmsCategoriesController', function(catego
 			var model = this;
 			if (angular.isDefined(index)) {
 				model.categories[index].name = model.tempCategory.name;
-				categoriesFactory.update(model.categories[index].id, model.categories[index]).$promise.finally(function() {
+				categoriesFactory.update({id: model.categories[index].id}, model.categories[index]).$promise.finally(function() {
 					model.categories = categoriesFactory.query();
 				});
 			} else {
