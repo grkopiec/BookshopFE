@@ -1,62 +1,62 @@
 <div class="row">
 	<div class="col-sm-12">
-		<form name="userDataCtrl.dataForm" ng-submit="userDataCtrl.update()">
+		<form name="userDataCtrl.userDetailsForm" ng-submit="userDataCtrl.update()">
 			<div>
 				<h2>Edit Your data</h2>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.name.$invalid && userDataCtrl.dataForm.name.$touched, 'has-success': userDataCtrl.dataForm.name.$valid && userDataCtrl.dataForm.name.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.name.$invalid && userDataCtrl.userDetailsForm.name.$touched, 'has-success': userDataCtrl.userDetailsForm.name.$valid && userDataCtrl.userDetailsForm.name.$touched}">
 				<label class="control-label" for="name">Name</label>
 				<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="userDataCtrl.userDetails.name" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.name.$error" ng-show="userDataCtrl.dataForm.name.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.name.$error" ng-show="userDataCtrl.userDetailsForm.name.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.surname.$invalid && userDataCtrl.dataForm.surname.$touched, 'has-success': userDataCtrl.dataForm.surname.$valid && userDataCtrl.dataForm.surname.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.surname.$invalid && userDataCtrl.userDetailsForm.surname.$touched, 'has-success': userDataCtrl.userDetailsForm.surname.$valid && userDataCtrl.userDetailsForm.surname.$touched}">
 				<label class="control-label" for="surname">Surname</label>
 				<input class="form-control" name="surname" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="userDataCtrl.userDetails.surname" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.surname.$error" ng-show="userDataCtrl.dataForm.surname.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.surname.$error" ng-show="userDataCtrl.userDetailsForm.surname.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.email.$invalid && userDataCtrl.dataForm.email.$touched, 'has-success': userDataCtrl.dataForm.email.$valid && userDataCtrl.dataForm.email.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.email.$invalid && userDataCtrl.userDetailsForm.email.$touched, 'has-success': userDataCtrl.userDetailsForm.email.$valid && userDataCtrl.userDetailsForm.email.$touched}">
 				<label class="control-label" for="email">Email</label>
 				<input class="form-control" name="email" type="email" ng-required="true" ng-minlength="5" ng-maxlength="70" ng-model="userDataCtrl.userDetails.email" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.email.$error" ng-show="userDataCtrl.dataForm.email.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.email.$error" ng-show="userDataCtrl.userDetailsForm.email.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.phone.$invalid && userDataCtrl.dataForm.phone.$touched, 'has-success': userDataCtrl.dataForm.phone.$valid && userDataCtrl.dataForm.phone.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.phone.$invalid && userDataCtrl.userDetailsForm.phone.$touched, 'has-success': userDataCtrl.userDetailsForm.phone.$valid && userDataCtrl.userDetailsForm.phone.$touched}">
 				<label class="control-label" for="phone">Phone</label>
 				<input class="form-control" name="phone" type="tel" ng-required="true" ng-minlength="5" ng-maxlength="15" ng-model="userDataCtrl.userDetails.phone" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.phone.$error" ng-show="userDataCtrl.dataForm.phone.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.phone.$error" ng-show="userDataCtrl.userDetailsForm.phone.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.city.$invalid && userDataCtrl.dataForm.city.$touched, 'has-success': userDataCtrl.dataForm.city.$valid && userDataCtrl.dataForm.city.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.city.$invalid && userDataCtrl.userDetailsForm.city.$touched, 'has-success': userDataCtrl.userDetailsForm.city.$valid && userDataCtrl.userDetailsForm.city.$touched}">
 				<label class="control-label" for="city">City</label>
 				<input class="form-control" name="city" type="text" ng-required="true" ng-minlength="2" ng-maxlength="40" ng-model="userDataCtrl.userDetails.city" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.city.$error" ng-show="userDataCtrl.dataForm.city.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.city.$error" ng-show="userDataCtrl.userDetailsForm.city.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.street.$invalid && userDataCtrl.dataForm.street.$touched, 'has-success': userDataCtrl.dataForm.street.$valid && userDataCtrl.dataForm.street.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.street.$invalid && userDataCtrl.userDetailsForm.street.$touched, 'has-success': userDataCtrl.userDetailsForm.street.$valid && userDataCtrl.userDetailsForm.street.$touched}">
 				<label class="control-label" for="street">Street</label>
 				<input class="form-control" name="street" type="text" ng-required="true" ng-minlength="5" ng-maxlength="50" ng-model="userDataCtrl.userDetails.street" />
 				<div class="help-block" ng-messages="userDataCtrl.street.$error" ng-show="userDataCtrl.street.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': userDataCtrl.dataForm.userDetails.state.$invalid && userDataCtrl.dataForm.userDetails.state.$touched, 'has-success': userDataCtrl.dataForm.state.$valid && userDataCtrl.dataForm.state.$touched}">
+ 			<div class="form-group" ng-class="{'has-error': userDataCtrl.userDetailsForm.userDetails.state.$invalid && userDataCtrl.userDetailsForm.userDetails.state.$touched, 'has-success': userDataCtrl.userDetailsForm.state.$valid && userDataCtrl.userDetailsForm.state.$touched}">
 				<label class="control-label" for="state">State</label>
 				<input class="form-control" name="state" type="text" ng-minlength="2" ng-maxlength="40" ng-model="userDataCtrl.userDetails.state" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.state.$error" ng-show="userDataCtrl.dataForm.state.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.state.$error" ng-show="userDataCtrl.userDetailsForm.state.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.dataForm.zipCode.$invalid && userDataCtrl.dataForm.zipCode.$touched, 'has-success': userDataCtrl.dataForm.zipCode.$valid && userDataCtrl.dataForm.zipCode.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': userDataCtrl.userDetailsForm.zipCode.$invalid && userDataCtrl.userDetailsForm.zipCode.$touched, 'has-success': userDataCtrl.userDetailsForm.zipCode.$valid && userDataCtrl.userDetailsForm.zipCode.$touched}">
 				<label class="control-label" for="zipCode">Zip code</label>
 				<input class="form-control" name="zipCode" type="text" ng-required="true" ng-minlength="5" ng-maxlength="7" ng-model="userDataCtrl.userDetails.zipCode" />
-				<div class="help-block" ng-messages="userDataCtrl.dataForm.zipCode.$error" ng-show="userDataCtrl.dataForm.zipCode.$touched">
+				<div class="help-block" ng-messages="userDataCtrl.userDetailsForm.zipCode.$error" ng-show="userDataCtrl.userDetailsForm.zipCode.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>

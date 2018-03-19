@@ -130,7 +130,7 @@ describe('test suite for bookskhop application', function() {
 			expect(categoriesFact.save).toHaveBeenCalled();
 		});
 		
-		it('test saveOrUpdate() method when categoryForm is valid and passed as argument index', function() {
+		it('test saveOrUpdate() method when categoryForm is valid and category.id is defined', function() {
 			var categoryName = 'Toys';
 			
 			cmsCategoriesCtrl.categories = [
@@ -156,7 +156,7 @@ describe('test suite for bookskhop application', function() {
 			
 			expect(cmsCategoriesCtrl.categories[0].name).toEqual(categoryName);
 			//should have been called update method of categoriesFactory
-			expect(categoriesFact.update).toHaveBeenCalled();
+			expect(categoriesFact.update).toHaveBeenCalledWith({id: cmsCategoriesCtrl.categories[0].id}, cmsCategoriesCtrl.categories[0]);
 			expect(categoriesFact.save).not.toHaveBeenCalled();
 		});
 		

@@ -1,5 +1,5 @@
 describe('test suite for bookskhop application', function() {
-	describe('tests for utilService', function() {
+	describe('tests for userService', function() {
 		beforeEach(function() {
 			module('bookshop');
 		});

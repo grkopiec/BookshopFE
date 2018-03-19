@@ -116,7 +116,7 @@ describe('test suite for bookskhop application', function() {
 			
 			expect(utilSrv.productCommaToDot).toHaveBeenCalledWith(cmsProductsCtrl.product);
 			//should have been called update method of productsFactory
-			expect(productsFact.update).toHaveBeenCalledWith(cmsProductsCtrl.product.id, cmsProductsCtrl.product);
+			expect(productsFact.update).toHaveBeenCalledWith({id: cmsProductsCtrl.product.id}, cmsProductsCtrl.product);
 			expect(productsFact.save).not.toHaveBeenCalled();
 		});
 		

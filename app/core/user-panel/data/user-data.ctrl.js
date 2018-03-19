@@ -8,7 +8,7 @@ angular.module('bookshop').controller('userDataController', function(usersFactor
 	this.init();
 	
 	this.update = function() {
-		if (this.dataForm.$valid) {
+		if (this.userDetailsForm.$valid) {
 			var model = this;
 			usersFactory.update({id: userService.user.userId}, this.userDetails).$promise.then(function(userDetails) {
 				model.userDetials = userDetails;
