@@ -18,12 +18,5 @@ describe('test suite for bookskhop application', function() {
 			
 			expect(cmsCtrl.activeTab).toEqual(label);
 		});
-		
-		it('test switchTab() function', function() {
-			var label = 'categories';
-			cmsCtrl.switchTab(label);
-			
-			expect(cmsCtrl.activeTab).toEqual(label);
-		});
 	});
 });
