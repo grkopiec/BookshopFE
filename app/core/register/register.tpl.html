@@ -46,7 +46,7 @@
 				</div>
 	 			<div class="form-group required" ng-class="{'has-error': registerCtrl.registerForm.email.$invalid && registerCtrl.registerForm.email.$touched, 'has-success': registerCtrl.registerForm.email.$valid && registerCtrl.registerForm.email.$touched}">
 					<label class="control-label" for="email">Email</label>
-					<input class="form-control" name="email" type="email" ng-required="true" ng-minlength="5" ng-maxlength="70" ng-model="registerCtrl.userData.userDetails.email" />
+					<input class="form-control" name="email" type="email" ng-required="true" ng-minlength="6" ng-maxlength="70" bs-validate-email ng-model="registerCtrl.userData.userDetails.email" />
 					<div class="help-block" ng-messages="registerCtrl.registerForm.email.$error" ng-show="registerCtrl.registerForm.email.$touched">
 						<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 					</div>
