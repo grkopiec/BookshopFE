@@ -13,14 +13,14 @@
 				<h2 ng-if="cmsProductsCtrl.$stateParams.action === 'add'">Add product</h2>
 				<h2 ng-if="cmsProductsCtrl.$stateParams.action === 'edit'">Edit product</h2>
 			</div>
-			<div class="form-group" ng-class="{'has-error': cmsProductsCtrl.productForm.name.$invalid && cmsProductsCtrl.productForm.name.$touched, 'has-success': cmsProductsCtrl.productForm.name.$valid && cmsProductsCtrl.productForm.name.$touched}">
+			<div class="form-group required" ng-class="{'has-error': cmsProductsCtrl.productForm.name.$invalid && cmsProductsCtrl.productForm.name.$touched, 'has-success': cmsProductsCtrl.productForm.name.$valid && cmsProductsCtrl.productForm.name.$touched}">
 				<label class="control-label" for="name">Name</label>
 				<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsProductsCtrl.product.name" />
 				<div class="help-block" ng-messages="cmsProductsCtrl.productForm.name.$error" ng-show="cmsProductsCtrl.productForm.name.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsProductsCtrl.productForm.producer.$invalid && cmsProductsCtrl.productForm.producer.$touched, 'has-success': cmsProductsCtrl.productForm.producer.$valid && cmsProductsCtrl.productForm.producer.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsProductsCtrl.productForm.producer.$invalid && cmsProductsCtrl.productForm.producer.$touched, 'has-success': cmsProductsCtrl.productForm.producer.$valid && cmsProductsCtrl.productForm.producer.$touched}">
 				<label class="control-label" for="producer">Producer</label>
 				<input class="form-control" name="producer" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsProductsCtrl.product.producer" />
 				<div class="help-block" ng-messages="cmsProductsCtrl.productForm.producer.$error" ng-show="cmsProductsCtrl.productForm.producer.$touched">
@@ -34,7 +34,7 @@
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsProductsCtrl.productForm.price.$invalid && cmsProductsCtrl.productForm.price.$touched, 'has-success': cmsProductsCtrl.productForm.price.$valid && cmsProductsCtrl.productForm.price.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsProductsCtrl.productForm.price.$invalid && cmsProductsCtrl.productForm.price.$touched, 'has-success': cmsProductsCtrl.productForm.price.$valid && cmsProductsCtrl.productForm.price.$touched}">
 				<label class="control-label" for="price">Price</label>
 				<input class="form-control" name="price" type="text" ng-required="true" ng-pattern="/^[1-9]\d{0,6}(\,\d{1,2})?$/" ng-model="cmsProductsCtrl.product.price" />
 				<div class="help-block" ng-messages="cmsProductsCtrl.productForm.price.$error" ng-show="cmsProductsCtrl.productForm.price.$touched">
@@ -48,7 +48,7 @@
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsProductsCtrl.productForm.category.$invalid && cmsProductsCtrl.productForm.category.$touched, 'has-success': cmsProductsCtrl.productForm.category.$valid && cmsProductsCtrl.productForm.category.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsProductsCtrl.productForm.category.$invalid && cmsProductsCtrl.productForm.category.$touched, 'has-success': cmsProductsCtrl.productForm.category.$valid && cmsProductsCtrl.productForm.category.$touched}">
 				<label class="control-label" for="category">Category</label>
 				<select class="form-control" name="category" ng-required="true" ng-model="cmsProductsCtrl.product.category" ng-options="category.name for category in cmsProductsCtrl.categories track by category.id">
 					<option value="">Select category</option>

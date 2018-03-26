@@ -12,35 +12,35 @@
 			<div>
 				<h2>Add admin user</h2>
 			</div>
-			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.username.$invalid && cmsUsersCtrl.userForm.username.$touched, 'has-success': cmsUsersCtrl.userForm.username.$valid && cmsUsersCtrl.userForm.username.$touched}">
+			<div class="form-group required" ng-class="{'has-error': cmsUsersCtrl.userForm.username.$invalid && cmsUsersCtrl.userForm.username.$touched, 'has-success': cmsUsersCtrl.userForm.username.$valid && cmsUsersCtrl.userForm.username.$touched}">
 				<label class="control-label" for="username">Username</label>
 				<input class="form-control" name="username" type="text" ng-required="true" ng-minlength="2" ng-maxlength="30" ng-model="cmsUsersCtrl.userData.user.username" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userForm.username.$error" ng-show="cmsUsersCtrl.userForm.username.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.password.$invalid && cmsUsersCtrl.userForm.password.$touched, 'has-success': cmsUsersCtrl.userForm.password.$valid && cmsUsersCtrl.userForm.password.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsUsersCtrl.userForm.password.$invalid && cmsUsersCtrl.userForm.password.$touched, 'has-success': cmsUsersCtrl.userForm.password.$valid && cmsUsersCtrl.userForm.password.$touched}">
 				<label class="control-label" for="password">Password</label>
 				<input class="form-control" name="password" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" ng-model="cmsUsersCtrl.userData.user.password" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userData.user.password.$error" ng-show="cmsUsersCtrl.userData.user.password.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.repeatPassword.$invalid && cmsUsersCtrl.userForm.repeatPassword.$touched, 'has-success': cmsUsersCtrl.userForm.repeatPassword.$valid && cmsUsersCtrl.userForm.repeatPassword.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsUsersCtrl.userForm.repeatPassword.$invalid && cmsUsersCtrl.userForm.repeatPassword.$touched, 'has-success': cmsUsersCtrl.userForm.repeatPassword.$valid && cmsUsersCtrl.userForm.repeatPassword.$touched}">
 				<label class="control-label" for="repeatPassword">Repeat Password</label>
 				<input class="form-control" name="repeatPassword" type="password" ng-required="true" ng-minlength="4" ng-maxlength="30" bs-compare-to="cmsUsersCtrl.userData.user.password" ng-model="cmsUsersCtrl.userData.user.repeatPassword" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userData.user.repeatPassword.$error" ng-show="cmsUsersCtrl.userData.user.repeatPassword.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.name.$invalid && cmsUsersCtrl.userForm.name.$touched, 'has-success': cmsUsersCtrl.userForm.name.$valid && cmsUsersCtrl.userForm.name.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsUsersCtrl.userForm.name.$invalid && cmsUsersCtrl.userForm.name.$touched, 'has-success': cmsUsersCtrl.userForm.name.$valid && cmsUsersCtrl.userForm.name.$touched}">
 				<label class="control-label" for="name">Name</label>
 				<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="cmsUsersCtrl.userData.userDetails.name" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userForm.name.$error" ng-show="cmsUsersCtrl.userForm.name.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
- 			<div class="form-group" ng-class="{'has-error': cmsUsersCtrl.userForm.surname.$invalid && cmsUsersCtrl.userForm.surname.$touched, 'has-success': cmsUsersCtrl.userForm.surname.$valid && cmsUsersCtrl.userForm.surname.$touched}">
+ 			<div class="form-group required" ng-class="{'has-error': cmsUsersCtrl.userForm.surname.$invalid && cmsUsersCtrl.userForm.surname.$touched, 'has-success': cmsUsersCtrl.userForm.surname.$valid && cmsUsersCtrl.userForm.surname.$touched}">
 				<label class="control-label" for="surname">Surname</label>
 				<input class="form-control" name="surname" type="text" ng-required="true" ng-minlength="2" ng-maxlength="50" ng-model="cmsUsersCtrl.userData.userDetails.surname" />
 				<div class="help-block" ng-messages="cmsUsersCtrl.userForm.surname.$error" ng-show="cmsUsersCtrl.userForm.surname.$touched">
