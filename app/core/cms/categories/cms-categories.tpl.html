@@ -22,7 +22,7 @@
 					<td ng-if="category.action === undefined">{{category.name}}</td>
 					<td ng-if="category.action === 'edit'">
 						<form name="cmsCategoriesCtrl.categoryForm">
-							<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsCategoriesCtrl.tempCategory.name" />
+							<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="2" ng-maxlength="100" ng-model="cmsCategoriesCtrl.tempCategory.name" />
 							<div class="help-block" ng-messages="cmsCategoriesCtrl.categoryForm.name.$error" ng-show="cmsCategoriesCtrl.categoryForm.name.$touched">
 								<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 							</div>
@@ -46,7 +46,7 @@
 				<tr ng-if="cmsCategoriesCtrl.action === 'add'">
 					<td>
 						<form name="cmsCategoriesCtrl.categoryForm">
-							<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-model="cmsCategoriesCtrl.tempCategory.name" />
+							<input class="form-control" name="name" type="text" ng-required="true" ng-minlength="2" ng-maxlength="100" ng-model="cmsCategoriesCtrl.tempCategory.name" />
 							<div class="help-block" ng-messages="cmsCategoriesCtrl.categoryForm.name.$error" ng-show="cmsCategoriesCtrl.categoryForm.name.$touched">
 								<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 							</div>
