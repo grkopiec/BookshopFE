@@ -36,14 +36,14 @@
 			</div>
  			<div class="form-group required" ng-class="{'has-error': cmsProductsCtrl.productForm.price.$invalid && cmsProductsCtrl.productForm.price.$touched, 'has-success': cmsProductsCtrl.productForm.price.$valid && cmsProductsCtrl.productForm.price.$touched}">
 				<label class="control-label" for="price">Price</label>
-				<input class="form-control" name="price" type="text" ng-required="true" ng-pattern="/^[1-9]\d{0,6}(\,\d{1,2})?$/" ng-model="cmsProductsCtrl.product.price" />
+				<input class="form-control" name="price" type="text" ng-required="true" bs-validate-price ng-model="cmsProductsCtrl.product.price" />
 				<div class="help-block" ng-messages="cmsProductsCtrl.productForm.price.$error" ng-show="cmsProductsCtrl.productForm.price.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
 			</div>
  			<div class="form-group" ng-class="{'has-error': cmsProductsCtrl.productForm.discount.$invalid && cmsProductsCtrl.productForm.discount.$touched, 'has-success': cmsProductsCtrl.productForm.discount.$valid && cmsProductsCtrl.productForm.discount.$touched}">
 				<label class="control-label" for="discount">Discount</label>
-				<input class="form-control" name="discount" type="text" ng-pattern="/^[1-9]\d{0,6}(\,\d{1,2})?$/" ng-model="cmsProductsCtrl.product.discount" />
+				<input class="form-control" name="discount" type="text" bs-validate-price ng-model="cmsProductsCtrl.product.discount" />
 				<div class="help-block" ng-messages="cmsProductsCtrl.productForm.discount.$error" ng-show="cmsProductsCtrl.productForm.discount.$touched">
 					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
 				</div>
