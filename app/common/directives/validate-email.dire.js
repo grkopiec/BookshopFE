@@ -1,5 +1,5 @@
 angular.module('bookshop').directive('bsValidateEmail', function() {
-	var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/;
+	var EMAIL_REGEXP = /^[_a-z\d]+(\.[_a-z\d]+)*@[-a-z\d]+(\.[-a-z\d]+)*(\.[a-z]{2,5})$/;
 	
 	return {
 		restrict: 'A',

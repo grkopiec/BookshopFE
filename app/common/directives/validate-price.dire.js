@@ -1,5 +1,5 @@
 angular.module('bookshop').directive('bsValidatePrice', function() {
-	var PRICE_REGEXP = /^[0-9]\d{0,6}(\,\d{1,2})?$/;
+	var PRICE_REGEXP = /^\d\d{0,5}(\,\d{1,2})?$/;
 	
 	return {
 		restrict: 'A',
