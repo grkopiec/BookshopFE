@@ -40,6 +40,12 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		controllerAs: 'userDataCtrl',
 		templateUrl: 'core/user-panel/data/user-data.tpl.html'
 	})
+	.state('user-panel.change-password', {
+		url: '/change-password',
+		controller: 'userChangePasswordController',
+		controllerAs: 'userChangePasswordCtrl',
+		templateUrl: 'core/user-panel/change-password/user-change-password.tpl.html'
+	})
 	.state('cms', {
 		url: '/cms',
 		controller: 'cmsController',
