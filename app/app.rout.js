@@ -3,6 +3,7 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 	$urlRouterProvider.when('/cms', '/cms/categories');
 	//if user redirect to /user-panel show by default /data nested state
 	$urlRouterProvider.when('/user-panel', '/user-panel/data');
+	$urlRouterProvider.otherwise('/');
 	
 	$stateProvider.state('home', {
 		url: '/',
@@ -92,9 +93,6 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		controllerAs: 'cmsUsersCtrl',
 		templateUrl: 'core/cms/users/cms-user-add.tpl.html',
 		params: {action: 'add'}
-	})
-	.state('otherwise', {
-		redirectTo: '/'
 	});
 	
 	$locationProvider.html5Mode(true);
