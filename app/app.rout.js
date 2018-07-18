@@ -5,6 +5,8 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 	$urlRouterProvider.when('/user-panel', '/user-panel/data');
 	$urlRouterProvider.otherwise('/');
 	
+	$locationProvider.html5Mode(true);
+	
 	$stateProvider.state('home', {
 		url: '/',
 		controller: 'homeController',
@@ -94,6 +96,4 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		templateUrl: 'core/cms/users/cms-user-add.tpl.html',
 		params: {action: 'add'}
 	});
-	
-	$locationProvider.html5Mode(true);
 });

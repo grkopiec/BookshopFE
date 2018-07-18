@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
@@ -89,7 +90,8 @@ gulp.task('fontsProd', function() {
 gulp.task('browserSync', function() {
 	browserSync.init(null, {
 		server: {
-			baseDir: 'dist/dev'
+			baseDir: 'dist/dev',
+			middleware: [historyApiFallback()]
 		}
 	});
 });
