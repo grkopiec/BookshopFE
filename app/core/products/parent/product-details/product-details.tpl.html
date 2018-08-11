@@ -1,0 +1,21 @@
+<div class="row list-group-item">
+	<div class="col-sm-8">
+		<img alt="Product image" ng-src="{{productDetailsCtrl.utilService.calculateImagePath(productDetailsCtrl.product.imagePath)}}" class="img-responsive">
+	</div>
+	<div class="col-sm-4">
+		<div class="thumbnail list-group-item">
+			<div class="caption">
+				<h4 class="list-group-item-heading">{{productDetailsCtrl.product.name}}</h4>
+				<p class="list-group-item-text">{{productDetailsCtrl.product.producer}}</p>
+				<div class="row">
+					<div class="col-sm-12 col-lg-6">
+						<p class="lead">{{productDetailsCtrl.utilService.formatPrice(productDetailsCtrl.product.price)}}</p>
+					</div>
+					<div class="col-sm-12 col-lg-6">
+						<a href="" class="btn btn-success">Add to card</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

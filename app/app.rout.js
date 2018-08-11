@@ -29,7 +29,34 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		url: '/products',
 		controller: 'productsController',
 		controllerAs: 'productsCtrl',
-		templateUrl: 'core/products/products.tpl.html'
+		templateUrl: 'core/products/products.tpl.html',
+		redirectTo: 'products.parent.all'
+	})
+	.state('products.parent', {
+		templateUrl: 'core/products/parent/parent.tpl.html',
+		abstract: true
+	})
+	.state('products.parent.all', {
+		url: '/',
+		params: {category: null},
+		views: {
+			'productsAll': {
+				controller: 'productsAllController',
+				controllerAs: 'productsAllCtrl',
+				templateUrl: 'core/products/parent/all/products-all.tpl.html'
+			}
+		}
+	})
+	.state('products.parent.details', {
+		url: '/details',
+		params: {product: null},
+		views: {
+			'productDetails': {
+				controller: 'productDetailsController',
+				controllerAs: 'productDetailsCtrl',
+				templateUrl: 'core/products/parent/product-details/product-details.tpl.html'
+			}
+		}
 	})
 	.state('user-panel', {
 		url: '/user-panel',

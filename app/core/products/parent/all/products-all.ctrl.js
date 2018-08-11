@@ -1,0 +1,20 @@
+angular.module('bookshop').controller('productsAllController', function($state, $stateParams, utilService, productsFactory) {
+	this.init = function() {
+		this.products = productsFactory.query();
+		this.utilService = utilService;
+		this.query = {
+			category: $stateParams.category
+		};
+		this.search();
+	}
+	
+	this.search = function() {
+		this.products = productsFactory.search(this.query);
+	}
+	
+	this.init();
+	
+	this.goToProductDetails = function(product) {
+		$state.go('products.parent.details', {product: product});
+	}
+});
