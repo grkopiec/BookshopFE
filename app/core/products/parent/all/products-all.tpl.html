@@ -37,8 +37,10 @@
 					<div class="col-sm-12 col-lg-6">
 						<p class="lead">{{productsAllCtrl.utilService.formatPrice(product.price)}}</p>
 					</div>
-					<div class="col-sm-12 col-lg-6">
-						<a href="" class="btn btn-success">Add to card</a>
+					<div ng-init="countOrdered = productsAllCtrl.ordersService.countOrderedProducts(product.id)" class="col-sm-12 col-lg-6">
+						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}" href="" class="btn btn-success">
+							Add to card <span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
+						</a>
 					</div>
 				</div>
 			</div>

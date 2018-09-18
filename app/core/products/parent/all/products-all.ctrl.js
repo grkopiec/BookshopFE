@@ -1,7 +1,8 @@
-angular.module('bookshop').controller('productsAllController', function($state, $stateParams, utilService, productsFactory) {
+angular.module('bookshop').controller('productsAllController', function($state, $stateParams, utilService, ordersService, productsFactory) {
 	this.init = function() {
 		this.products = productsFactory.query();
 		this.utilService = utilService;
+		this.ordersService = ordersService;
 		this.query = {
 			category: $stateParams.category
 		};
