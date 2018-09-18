@@ -23,7 +23,8 @@
 					<li ui-sref-active="active">
 						<a ui-sref="products" href="">Products</a>
 					</li>
-					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
+					<li
+							ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
 									&& navbarCtrl.userService.user.roles.includes('ROLE_ADMIN') === true"
 							ui-sref-active="active">
 						<a ui-sref="cms" href="">Manage</a>
@@ -34,6 +35,19 @@
 					<input type="text" class="form-control" placeholder="Search" ng-model="search.name" ng-keyup="startSearch()" />
 				</form> -->
  				<ul class="nav navbar-nav navbar-right">
+					<li
+							ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
+									&& navbarCtrl.userService.user.roles.includes('ROLE_ADMIN') === false"
+							class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							Cart <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">TODO insert product</a></li>
+							<li><a href="#">TODO insert product</a></li>
+							<li><a href="#">TODO let to order tab</a></li>
+				        </ul>
+					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
 						<a ui-sref="login" href="">Login</a>
 					</li>
