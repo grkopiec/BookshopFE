@@ -37,8 +37,9 @@
 					<div class="col-sm-12 col-lg-6">
 						<p class="lead">{{productsAllCtrl.utilService.formatPrice(product.price)}}</p>
 					</div>
-					<div ng-init="countOrdered = productsAllCtrl.ordersService.countOrderedProducts(product.id)" class="col-sm-12 col-lg-6">
-						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}" href="" class="btn btn-success">
+					<div ng-init="countOrdered = productsAllCtrl.ordersService.countProducts(product.id)" class="col-sm-12 col-lg-6">
+						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}"
+								ng-click="countOrdered = productsAllCtrl.ordersService.addProduct(product, 1)" href="" class="btn btn-success">
 							Add to card <span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
 						</a>
 					</div>

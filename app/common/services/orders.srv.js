@@ -7,12 +7,25 @@ angular.module('bookshop').service('ordersService', function($filter) {
 	}
 	this.init();
 	
-	this.countOrderedProducts = function(productId) {
-		var orderItem = $filter('filter')(this.order.orderItems, {productId: productId});
+	this.addProduct = function(product, quantity) {
+		var orderItem = $filter('filter')(this.order.orderItems, {productId: product.id});
 		
+		if (orderItem.length === 0) {
+			var newOrderItem = {price: product.price, quantity: 1, productId: product.id};
+			this.order.orderItems.push(newOrderItem);
+			return newOrderItem.quantity;
+		} else {
+			orderItem[0].quantity += quantity;
+			return orderItem[0].quantity;
+		}
+	}
+	
+	this.countProducts = function(productId) {
+		var orderItem = $filter('filter')(this.order.orderItems, {productId: productId});
+
 		if (orderItem.length === 0) {
 			return 0;
 		}
-		return orderItem.quantity;
+		return orderItem[0].quantity;
 	}
 });
