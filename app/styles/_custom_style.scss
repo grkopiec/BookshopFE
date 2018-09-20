@@ -1,3 +1,7 @@
+.top-margin {
+	margin-top: 20px;
+}
+
 .active > a {
 	color: $bookshop-text-oposite-color;
 }
@@ -27,6 +31,20 @@
 	background: $bookshop-main-color;
 }
 
+.buttons-content {
+	padding-bottom: 10px;
+}
+
+input[type=number].no-spinner::-webkit-inner-spin-button,
+input[type=number].no-spinner::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number].no-spinner {
+	-moz-appearance:textfield;
+}
+
 form {
 	&.form-inline {
 		padding-bottom: 10px;
@@ -36,10 +54,6 @@ form {
 		content: '*';
 		color: red;
 	}
-}
-
-.buttons-content {
-	padding-bottom: 10px;
 }
 
 table {
