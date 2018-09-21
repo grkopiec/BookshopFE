@@ -23,6 +23,7 @@
 	</div>
 </div>
 <div class="row list-group fix-wrap">
+	<!-- adjust displaying when price is max and ordered max products, adjust as well product detail page -->
 	<div ng-repeat="product in productsAllCtrl.products track by $index" class="col-sm-4 list-group-item">
 		<div class="thumbnail">
 			<a ng-click="productsAllCtrl.goToProductDetails(product)" href="">
@@ -39,8 +40,9 @@
 					</div>
 					<div ng-init="countOrdered = productsAllCtrl.ordersService.countProducts(product.id)" class="col-sm-12 col-lg-6">
 						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}"
-								ng-click="countOrdered = productsAllCtrl.ordersService.addProduct(product, 1)" href="" class="btn btn-success">
-							Add to card <span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
+								ng-click="countOrdered = productsAllCtrl.ordersService.addProduct(product, 1)" href="" class="btn">
+							Add to card
+							<span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
 						</a>
 					</div>
 				</div>

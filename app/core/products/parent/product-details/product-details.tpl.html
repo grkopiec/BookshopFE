@@ -15,25 +15,31 @@
 					<div class="col-sm-12 col-lg-6">
 						<div class="input-group input-group-sm">
 							<div class="input-group-btn">
-								<button class="btn btn-danger">
+								<button ng-click="productDetailsCtrl.decrementQuantity()" class="btn btn-danger">
 									<span class="glyphicon glyphicon-minus"></span>
 								</button>
 							</div>
-							<input type="number" class="form-control no-spinner" value="1" />
+							<input ng-model="productDetailsCtrl.quantity" class="form-control no-spinner" />
 							<div class="input-group-btn">
-								<button class="btn btn-success">
+								<button ng-click="productDetailsCtrl.incrementQuantity()" class="btn btn-success">
 									<span class="glyphicon glyphicon-plus"></span>
 								</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row top-margin">
+				<div ng-init="countOrdered = productDetailsCtrl.ordersService.countProducts(productDetailsCtrl.product.id)" class="row top-margin">
 					<div class="col-sm-12 col-lg-6">
 						<h4>{{productDetailsCtrl.utilService.formatPrice(productDetailsCtrl.product.price)}}</h4>
 					</div>
 					<div class="col-sm-12 col-lg-6">
-						<a href="" class="btn btn-success">Add to card</a>
+						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}"
+								ng-click="countOrdered
+										= productDetailsCtrl.ordersService.addProduct(productDetailsCtrl.product, productDetailsCtrl.quantity)"
+								href="" class="btn">
+							Add to card
+							<span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
+						</a>
 					</div>
 				</div>
 			</div>
