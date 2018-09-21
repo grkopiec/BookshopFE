@@ -30,12 +30,12 @@
 			</a>
 			<div class="caption">
 				<a ng-click="productsAllCtrl.goToProductDetails(product)" href="">
-					<h4 class="list-group-item-heading">{{product.name}}</h4>
+					<h2>{{product.name}}</h2>
 				</a>
-				<p class="list-group-item-text">{{product.producer}}</p>
+				<h4>{{product.producer}}</h4>
 				<div class="row">
 					<div class="col-sm-12 col-lg-6">
-						<p class="lead">{{productsAllCtrl.utilService.formatPrice(product.price)}}</p>
+						<h4>{{productsAllCtrl.utilService.formatPrice(product.price)}}</h4>
 					</div>
 					<div ng-init="countOrdered = productsAllCtrl.ordersService.countProducts(product.id)" class="col-sm-12 col-lg-6">
 						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}"

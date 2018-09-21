@@ -9,6 +9,10 @@
 	color: $bookshop-text-color;
 }
 
+.caption > a:hover {
+	text-decoration: none;
+}
+
 .icon-lg {
 	font-size: $font-size-base * 16;
 	margin: 25px 0;
