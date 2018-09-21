@@ -11,7 +11,7 @@ angular.module('bookshop').service('ordersService', function($filter) {
 		var orderItem = $filter('filter')(this.order.orderItems, {productId: product.id});
 		
 		if (orderItem.length === 0) {
-			var newOrderItem = {price: product.price, quantity: 1, productId: product.id};
+			var newOrderItem = {price: product.price, quantity: quantity, productId: product.id};
 			this.order.orderItems.push(newOrderItem);
 			return newOrderItem.quantity;
 		} else {
