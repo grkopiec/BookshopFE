@@ -42,10 +42,14 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							Cart <span class="caret"></span>
 						</a>
-						<ul class="dropdown-menu">
-							<li><a href="#">TODO insert product</a></li>
-							<li><a href="#">TODO insert product</a></li>
-							<li><a href="#">TODO let to order tab</a></li>
+						<ul class="dropdown-menu dropdown-menu-left">
+							<li class="dropdown-header">Products: TODO</li>
+							<li class="dropdown-header">Total price: TODO</li>
+							<ul class="list-group scrollable-list">
+								<li class="list-group-item">TODO should be product</li>
+								<li class="list-group-item">TODO should be product</li>
+							</ul>
+							<li><a href="#">Checkout</a></li>
 				        </ul>
 					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
