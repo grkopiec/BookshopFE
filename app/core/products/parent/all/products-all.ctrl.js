@@ -8,7 +8,6 @@ angular.module('bookshop').controller('productsAllController', function($state, 
 		};
 		this.search();
 	}	
-	this.init();
 	
 	this.search = function() {
 		this.products = productsFactory.search(this.query);
@@ -17,4 +16,6 @@ angular.module('bookshop').controller('productsAllController', function($state, 
 	this.goToProductDetails = function(product) {
 		$state.go('products.parent.details', {product: product});
 	}
+	
+	this.init();
 });
