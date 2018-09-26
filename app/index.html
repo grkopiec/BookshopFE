@@ -35,21 +35,29 @@
 					<input type="text" class="form-control" placeholder="Search" ng-model="search.name" ng-keyup="startSearch()" />
 				</form> -->
  				<ul class="nav navbar-nav navbar-right">
-					<li
-							ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
 									&& navbarCtrl.userService.user.roles.includes('ROLE_ADMIN') === false"
 							class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							Cart <span class="caret"></span>
+							Cart
+							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-left">
 							<li class="dropdown-header">Products: TODO</li>
 							<li class="dropdown-header">Total price: TODO</li>
-							<ul class="list-group scrollable-list">
-								<li class="list-group-item">TODO should be product</li>
-								<li class="list-group-item">TODO should be product</li>
+							<!-- TODO maybe here should be image? -->
+							<ul class="list-group scrollable-products-list">
+								<li ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index"
+										class="list-group-item">
+									<div class="product-image">TODO image</div>
+									<div class="product-name">{{order.name}}</div>
+									<div class="product-price">{{navbarCtrl.utilService.formatPrice(order.price)}}</div>
+									<div class="product-quantity">{{order.quantity}}</div>
+								</li>
 							</ul>
-							<li><a href="#">Checkout</a></li>
+							<li>
+								<a href="#">Checkout</a>
+							</li>
 				        </ul>
 					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
@@ -60,7 +68,8 @@
 					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false">
 						<p class="navbar-text">
-							Loged as <strong ng-bind="navbarCtrl.userService.user.username"></strong>
+							Loged as
+							<strong ng-bind="navbarCtrl.userService.user.username"></strong>
 						</p>
 					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false" ui-sref-active="active">
