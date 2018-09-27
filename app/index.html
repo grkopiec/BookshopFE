@@ -49,7 +49,9 @@
 							<ul class="list-group scrollable-products-list">
 								<li ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index"
 										class="list-group-item">
-									<div class="product-image">TODO image</div>
+									<div class="product-image">
+										<img alt="Product image" ng-src="{{navbarCtrl.utilService.calculateImagePath(order.imagePath)}}">
+									</div>
 									<div class="product-name">{{order.name}}</div>
 									<div class="product-price">{{navbarCtrl.utilService.formatPrice(order.price)}}</div>
 									<div class="product-quantity">{{order.quantity}}</div>
