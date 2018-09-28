@@ -1,9 +1,6 @@
 angular.module('bookshop').service('ordersService', function($filter) {
 	this.init = function() {
-		this.order = {
-			order: {},
-			orderItems: []
-		};
+		this.order = {order: {}, orderItems: []};
 	}
 	this.init();
 	

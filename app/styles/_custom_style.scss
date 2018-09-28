@@ -39,35 +39,25 @@
 	padding-bottom: 10px;
 }
 
-.scrollable-products-list {
-	height: auto;
-	max-height: 500px;
+.scrollable-dropdown-table {
 	margin-bottom: 0;
-	overflow-x: hidden;
-	
-	li {
-		display: flex;
-		width: max-content;
-		
-		.product-image {
-			width: 200px;
-		}
-		
-		.product-name {
-			width: 200px;
-			padding-right: 10px;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-		
-		.product-price {
-			width: 100px;
-		}
-		
-		.product-quantity {
-			width: 30px;
-		}
+
+	.product-name > p {
+		width: 200px;
+		//display only two lines
+		height: 38px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.product-price > p {
+		width: 100px;
+		max-height: 50px;
+	}
+
+	.product-quantity > p {
+		width: 30px;
+		max-height: 50px;
 	}
 }
 

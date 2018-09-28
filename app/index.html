@@ -7,7 +7,6 @@
 		<base href="/">
 	</head>
 	<body ng-controller="navbarController as navbarCtrl">
-
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
@@ -46,7 +45,7 @@
 							<li class="dropdown-header">Products: TODO</li>
 							<li class="dropdown-header">Total price: TODO</li>
 							<!-- TODO maybe here should be image? -->
-							<ul class="list-group scrollable-products-list">
+<!-- 							<ul class="list-group scrollable-products-list">
 								<li ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index"
 										class="list-group-item">
 									<div class="product-image">
@@ -56,7 +55,34 @@
 									<div class="product-price">{{navbarCtrl.utilService.formatPrice(order.price)}}</div>
 									<div class="product-quantity">{{order.quantity}}</div>
 								</li>
-							</ul>
+							</ul> -->
+							<table ng-if="navbarCtrl.ordersService.order.orderItems.length !== 0"
+									class="table table-hover scrollable-dropdown-table">
+								<thead>
+									<tr>
+									  <th>Image</th>
+									  <th>Name</th>
+									  <th>Price</th>
+									  <th>Quantity</th>
+									</tr>
+							    </thead>
+							    <tbody>
+									<tr ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index">
+										<td class="product-image">
+											<img alt="Product image" ng-src="{{navbarCtrl.utilService.calculateImagePath(order.imagePath)}}">
+										</td>
+										<td class="product-name">
+											<p>{{order.name}}</p>
+										</td>
+										<td class="product-price">
+											<p>{{navbarCtrl.utilService.formatPrice(order.price)}}</p>
+										</td>
+										<td class="product-quantity">
+											<p>{{order.quantity}}</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 							<li>
 								<a href="#">Checkout</a>
 							</li>
@@ -83,9 +109,7 @@
 				</ul>
 			</div>
 		</nav>
-	
 		<ui-view></ui-view>
-		
  		<script type="text/javascript" src="bookshop.js"></script>
 	</body>
 </html>
