@@ -39,7 +39,7 @@
 	padding-bottom: 10px;
 }
 
-.scrollable-dropdown-table {
+.dropdown-table {
 	margin-bottom: 0;
 
 	.product-name > p {
@@ -52,12 +52,10 @@
 
 	.product-price > p {
 		width: 100px;
-		max-height: 50px;
 	}
 
 	.product-quantity > p {
 		width: 30px;
-		max-height: 50px;
 	}
 }
 

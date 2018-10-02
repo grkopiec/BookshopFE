@@ -34,30 +34,37 @@
 					<input type="text" class="form-control" placeholder="Search" ng-model="search.name" ng-keyup="startSearch()" />
 				</form> -->
  				<ul class="nav navbar-nav navbar-right">
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
+						<a ui-sref="login" href="">Login</a>
+					</li>
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
+						<a ui-sref="register" href="">Register</a>
+					</li>
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false">
+						<p class="navbar-text">
+							Loged as
+							<strong ng-bind="navbarCtrl.userService.user.username"></strong>
+						</p>
+					</li>
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false" ui-sref-active="active">
+						<a ui-sref="user-panel" href="">Manage account</a>
+					</li>
+					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false">
+						<a ng-click="navbarCtrl.logout()" href="">Logout</a>
+					</li>
 					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false
-									&& navbarCtrl.userService.user.roles.includes('ROLE_ADMIN') === false"
+									&& navbarCtrl.userService.user.roles.includes('ROLE_ADMIN') === false
+									&& navbarCtrl.ordersService.order.orderItems.length !== 0"
 							class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							Cart
 							<span class="caret"></span>
 						</a>
-						<ul class="dropdown-menu dropdown-menu-left">
+						<!-- TODO list of products should be scrollable -->
+						<ul class="dropdown-menu">
 							<li class="dropdown-header">Products: TODO</li>
 							<li class="dropdown-header">Total price: TODO</li>
-							<!-- TODO maybe here should be image? -->
-<!-- 							<ul class="list-group scrollable-products-list">
-								<li ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index"
-										class="list-group-item">
-									<div class="product-image">
-										<img alt="Product image" ng-src="{{navbarCtrl.utilService.calculateImagePath(order.imagePath)}}">
-									</div>
-									<div class="product-name">{{order.name}}</div>
-									<div class="product-price">{{navbarCtrl.utilService.formatPrice(order.price)}}</div>
-									<div class="product-quantity">{{order.quantity}}</div>
-								</li>
-							</ul> -->
-							<table ng-if="navbarCtrl.ordersService.order.orderItems.length !== 0"
-									class="table table-hover scrollable-dropdown-table">
+							<table class="table table-hover dropdown-table">
 								<thead>
 									<tr>
 									  <th>Image</th>
@@ -68,7 +75,7 @@
 							    </thead>
 							    <tbody>
 									<tr ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index">
-										<td class="product-image">
+										<td>
 											<img alt="Product image" ng-src="{{navbarCtrl.utilService.calculateImagePath(order.imagePath)}}">
 										</td>
 										<td class="product-name">
@@ -87,24 +94,6 @@
 								<a href="#">Checkout</a>
 							</li>
 				        </ul>
-					</li>
-					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
-						<a ui-sref="login" href="">Login</a>
-					</li>
-					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === true" ui-sref-active="active">
-						<a ui-sref="register" href="">Register</a>
-					</li>
-					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false">
-						<p class="navbar-text">
-							Loged as
-							<strong ng-bind="navbarCtrl.userService.user.username"></strong>
-						</p>
-					</li>
-					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false" ui-sref-active="active">
-						<a ui-sref="user-panel" href="">Manage account</a>
-					</li>
-					<li ng-if="navbarCtrl.angular.equals({}, navbarCtrl.userService.user) === false">
-						<a ng-click="navbarCtrl.logout()" href="">Logout</a>
 					</li>
 				</ul>
 			</div>
