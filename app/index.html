@@ -62,8 +62,11 @@
 						</a>
 						<!-- TODO list of products should be scrollable -->
 						<ul class="dropdown-menu">
-							<li class="dropdown-header">Products: TODO</li>
-							<li class="dropdown-header">Total price: TODO</li>
+							<li class="dropdown-header">Products: {{navbarCtrl.ordersService.countAllProducts()}}</li>
+							<li class="dropdown-header">
+								Total price:
+								{{navbarCtrl.utilService.formatPrice(navbarCtrl.ordersService.calculateTotalPrice())}}
+							</li>
 							<table class="table table-hover dropdown-table">
 								<thead>
 									<tr>

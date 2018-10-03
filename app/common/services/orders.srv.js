@@ -25,4 +25,22 @@ angular.module('bookshop').service('ordersService', function($filter) {
 		}
 		return orderItem[0].quantity;
 	}
+	
+	this.countAllProducts = function() {
+		var orderedProducts = 0;
+		
+		angular.forEach(this.order.orderItems, function(value, key) {
+			orderedProducts += value.quantity;
+		});
+		return orderedProducts;
+	}
+	
+	this.calculateTotalPrice = function() {
+		var totalPrice = 0;
+		
+		angular.forEach(this.order.orderItems, function(value, key) {
+			totalPrice += value.quantity * value.price;
+		});
+		return totalPrice;
+	}
 });
