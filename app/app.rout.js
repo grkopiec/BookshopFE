@@ -76,6 +76,21 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		controllerAs: 'userChangePasswordCtrl',
 		templateUrl: 'core/user-panel/change-password/user-change-password.tpl.html'
 	})
+	.state('make-order', {
+		url: '/make-order',
+		templateUrl: 'core/make-order/make-order.tpl.html',
+		abstract: true
+	})
+	.state('make-order.products-list', {
+		url: '/products-list',
+		views: {
+			'productsList': {
+				controller: 'orderProductsController',
+				controllerAs: 'orderProductsCtrl',
+				templateUrl: 'core/make-order/products-list/products-list.tpl.html'
+			}
+		}
+	})
 	.state('cms', {
 		url: '/cms',
 		controller: 'cmsController',

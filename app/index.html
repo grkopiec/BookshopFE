@@ -77,6 +77,7 @@
 									</tr>
 							    </thead>
 							    <tbody>
+							    <!-- TODO change order to product -->
 									<tr ng-repeat="order in navbarCtrl.ordersService.order.orderItems track by $index">
 										<td>
 											<img alt="Product image" ng-src="{{navbarCtrl.utilService.calculateImagePath(order.imagePath)}}">
@@ -94,7 +95,7 @@
 								</tbody>
 							</table>
 							<li>
-								<a href="#">Checkout</a>
+								<a ui-sref="make-order.products-list" href="">Checkout</a>
 							</li>
 				        </ul>
 					</li>

@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+	<!-- TODO is repeatable can be move upper -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="buttons-content clearfix">
+					<a class="btn btn-success pull-right" ui-sref="cms.productAdd" href="">
+						<span class="glyphicon glyphicon-arrow-right"></span>
+						Make order
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+						  <th>Image</th>
+						  <th>Name</th>
+						  <th>Price</th>
+						  <th>Quantity</th>
+						  <th>Actions</th>
+						</tr>
+				    </thead>
+				    <tbody>
+						<tr ng-repeat="product in orderProductsCtrl.ordersService.order.orderItems track by $index">
+							<td>
+								<img alt="Product image" ng-src="{{orderProductsCtrl.utilService.calculateImagePath(product.imagePath)}}">
+							</td>
+							<td>{{product.name}}</td>
+							<td>{{orderProductsCtrl.utilService.formatPrice(product.price)}}</td>
+							<td>{{product.quantity}}</td>
+							<td>
+								<a ui-sref="cms.productEdit({productId: product.id})" href="">
+									<span class="glyphicon glyphicon-edit icon-sm"></span>
+								</a>
+								<a ng-click="cmsProductsCtrl.remove(product.id)" href="">
+									<span class="glyphicon glyphicon-trash icon-sm"></span>
+								</a>
+							</td>
+						</tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
