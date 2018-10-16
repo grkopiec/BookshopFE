@@ -33,11 +33,11 @@
 						<h4>{{productDetailsCtrl.utilService.formatPrice(productDetailsCtrl.product.price)}}</h4>
 					</div>
 					<div class="col-sm-12 col-lg-6">
-						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}"
+						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}" ng-disabled="countOrdered > 0"
 								ng-click="countOrdered
 										= productDetailsCtrl.ordersService.addProduct(productDetailsCtrl.product, productDetailsCtrl.quantity)"
 								href="" class="btn">
-							Add to card
+							{{countOrdered > 0? 'Added to cart': 'Add to cart'}}
 							<span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
 						</a>
 					</div>
