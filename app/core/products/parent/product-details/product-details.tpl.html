@@ -10,35 +10,59 @@
 				<h4>{{productDetailsCtrl.product.producer}}</h4>
 				<div class="row top-margin">
 					<div class="col-sm-12 col-lg-6">
-						<h4>Quantity</h4>
+						<h4 ng-class="{'text-danger': productDetailsCtrl.quantityForm.quantity.$invalid
+										&& productDetailsCtrl.quantityForm.quantity.$touched,
+										'text-success': productDetailsCtrl.quantityForm.quantity.$valid
+										&& productDetailsCtrl.quantityForm.quantity.$touched}">
+							Quantity
+						</h4>
 					</div>
 					<div class="col-sm-12 col-lg-6">
-						<div class="input-group input-group-sm">
-							<div class="input-group-btn">
-								<button ng-click="productDetailsCtrl.decrementQuantity()" class="btn btn-danger">
-									<span class="glyphicon glyphicon-minus"></span>
-								</button>
+						<form ng-class="{'has-error': productDetailsCtrl.quantityForm.quantity.$invalid
+										&& productDetailsCtrl.quantityForm.quantity.$touched,
+										'has-success': productDetailsCtrl.quantityForm.quantity.$valid
+										&& productDetailsCtrl.quantityForm.quantity.$touched}"
+								name="productDetailsCtrl.quantityForm">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="input-group input-group-sm">
+										<div class="input-group-btn">
+											<button ng-click="productDetailsCtrl.decrementQuantity()" class="btn btn-danger">
+												<span class="glyphicon glyphicon-minus"></span>
+											</button>
+										</div>
+										<input ng-blur="productDetailsCtrl.changeQuantity()" ng-model="productDetailsCtrl.inputQuantity"
+												ng-required="true" ng-min="0" ng-max="999" name="quantity" type="number"
+												class="form-control no-spinner" />
+										<div class="input-group-btn">
+											<button ng-click="productDetailsCtrl.incrementQuantity()" class="btn btn-success">
+												<span class="glyphicon glyphicon-plus"></span>
+											</button>
+										</div>
+									</div>
+								</div>
 							</div>
-							<input ng-model="productDetailsCtrl.quantity" class="form-control no-spinner" />
-							<div class="input-group-btn">
-								<button ng-click="productDetailsCtrl.incrementQuantity()" class="btn btn-success">
-									<span class="glyphicon glyphicon-plus"></span>
-								</button>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="help-block" ng-messages="productDetailsCtrl.quantityForm.quantity.$error"
+											ng-show="productDetailsCtrl.quantityForm.quantity.$touched">
+										<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+									</div>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
-				<div ng-init="countOrdered = productDetailsCtrl.ordersService.countProducts(productDetailsCtrl.product.id)" class="row top-margin">
+				<div class="row top-margin">
 					<div class="col-sm-12 col-lg-6">
 						<h4>{{productDetailsCtrl.utilService.formatPrice(productDetailsCtrl.product.price)}}</h4>
 					</div>
 					<div class="col-sm-12 col-lg-6">
-						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}" ng-disabled="countOrdered > 0"
-								ng-click="countOrdered
-										= productDetailsCtrl.ordersService.addProduct(productDetailsCtrl.product, productDetailsCtrl.quantity)"
+						<a ng-class="{'btn-success': productDetailsCtrl.quantity === 0, 'btn-info': productDetailsCtrl.quantity !== 0}"
+								ng-disabled="productDetailsCtrl.quantity > 0" ng-click="productDetailsCtrl.addToCart()"
 								href="" class="btn">
-							{{countOrdered > 0? 'Added to cart': 'Add to cart'}}
-							<span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
+							{{(productDetailsCtrl.quantity > 0) ? 'Added to cart' : 'Add to cart'}}
+							<span ng-if="productDetailsCtrl.quantity !== 0" class="badge">{{productDetailsCtrl.quantity}}</span>
 						</a>
 					</div>
 				</div>

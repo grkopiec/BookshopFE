@@ -40,7 +40,7 @@
 					</div>
 					<div ng-init="countOrdered = productsAllCtrl.ordersService.countProducts(product.id)" class="col-sm-12 col-lg-6">
 						<a ng-class="{'btn-success': countOrdered === 0, 'btn-info': countOrdered !== 0}" ng-disabled="countOrdered > 0"
-								ng-click="countOrdered = productsAllCtrl.ordersService.addProduct(product, 1)" href="" class="btn">
+								ng-click="countOrdered = productsAllCtrl.addToCart(product, countOrdered)" href="" class="btn">
 							{{countOrdered > 0? 'Added to cart': 'Add to cart'}}
 							<span ng-if="countOrdered !== 0" class="badge">{{countOrdered}}</span>
 						</a>

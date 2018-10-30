@@ -13,6 +13,13 @@ angular.module('bookshop').controller('productsAllController', function($state, 
 		this.products = productsFactory.search(this.query);
 	}
 	
+	this.addToCart = function(product, countOrdered) {
+		if (countOrdered === 0) {
+			return this.ordersService.changeQuantity(product, 1);
+		}
+		return countOrdered;
+	}
+	
 	this.goToProductDetails = function(product) {
 		$state.go('products.parent.details', {product: product});
 	}

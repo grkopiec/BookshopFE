@@ -2,17 +2,19 @@ angular.module('bookshop').service('ordersService', function($filter) {
 	this.init = function() {
 		this.order = {order: {}, orderItems: []};
 	}
-	this.init();
 	
-	this.addProduct = function(product, quantity) {
+	//TODO quantity should be max 999
+	//TODO ordered products should be max 99
+	this.changeQuantity = function(product, quantity) {
 		var orderItem = $filter('filter')(this.order.orderItems, {productId: product.id});
+		//TODO list should have 0 or 1 element
 		
 		if (orderItem.length === 0) {
 			var newOrderItem = {productId: product.id, name: product.name, price: product.price, quantity: quantity, imagePath: product.imagePath};
 			this.order.orderItems.push(newOrderItem);
 			return newOrderItem.quantity;
 		} else {
-			orderItem[0].quantity += quantity;
+			orderItem[0].quantity = quantity;
 			return orderItem[0].quantity;
 		}
 	}
@@ -43,4 +45,6 @@ angular.module('bookshop').service('ordersService', function($filter) {
 		});
 		return totalPrice;
 	}
+	
+	this.init();
 });
