@@ -3,7 +3,7 @@
 	<!-- TODO is repeatable can be move upper -->
 		<div class="row">
 			<div class="col-sm-6 col-xs-6 buttons-content">
-				<a ui-sref="cms.products" href="" class="btn btn-default">
+				<a ui-sref="products" href="" class="btn btn-default">
 					<span class="glyphicon glyphicon-arrow-left"></span>
 					Back
 				</a>
@@ -30,21 +30,60 @@
 						</tr>
 				    </thead>
 				    <tbody>
-						<tr ng-repeat="product in orderProductsCtrl.ordersService.order.orderItems track by $index">
+						<tr ng-repeat="product in orderProductsCtrl.ordersService.order.orderItems track by $index"
+								ng-init="product.inputQuantity = product.quantity">
 							<td>
 								<img alt="Product image" ng-src="{{orderProductsCtrl.utilService.calculateImagePath(product.imagePath)}}">
 							</td>
 							<td>{{product.name}}</td>
 							<td>{{orderProductsCtrl.utilService.formatPrice(product.price)}}</td>
-							<td>{{product.quantity}}</td>
 							<td>
-								<a ui-sref="cms.productEdit({productId: product.id})" href="">
-									<span class="glyphicon glyphicon-edit icon-sm"></span>
-								</a>
-								<a ng-click="cmsProductsCtrl.remove(product.id)" href="">
+								<form ng-class="{'has-error': orderProductsCtrl.quantityForm{{$index}}.quantity.$invalid
+												&& orderProductsCtrl.quantityForm{{$index}}.quantity.$touched,
+												'has-success': orderProductsCtrl.quantityForm{{$index}}.quantity.$valid
+												&& orderProductsCtrl.quantityForm{{$index}}.quantity.$touched}"
+										name="orderProductsCtrl.quantityForm{{$index}}">
+									<div class="row quantity">
+										<div class="col-sm-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-btn">
+													<button ng-click="orderProductsCtrl.decrementQuantity(product, $index)" class="btn btn-danger">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</div>
+												<input ng-blur="orderProductsCtrl.changeQuantity(product, $index)" ng-model="product.inputQuantity"
+														ng-required="true" ng-min="0" ng-max="999" name="quantity" type="number"
+														class="form-control no-spinner" />
+												<div class="input-group-btn">
+													<button ng-click="orderProductsCtrl.incrementQuantity(product, $index)" class="btn btn-success">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row quantity-error">
+										<div class="col-sm-12">
+											<div class="help-block" ng-messages="orderProductsCtrl['quantityForm' + $index].quantity.$error"
+													ng-show="orderProductsCtrl['quantityForm' + $index].quantity.$touched">
+												<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</td>
+							<td>
+								<a ng-click="orderProductsCtrl.ordersService.changeQuantity(product, 0)" href="">
 									<span class="glyphicon glyphicon-trash icon-sm"></span>
 								</a>
 							</td>
+						</tr>
+						<tr ng-if="orderProductsCtrl.ordersService.order.orderItems.length !== 0">
+							<td></td>
+							<td></td>
+							<td>{{orderProductsCtrl.calculateTotalPrice()}}</td>
+							<td>{{orderProductsCtrl.ordersService.countAllProducts()}}</td>
+							<td></td>
 						</tr>
 				    </tbody>
 				</table>

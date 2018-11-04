@@ -23,7 +23,7 @@
 										'has-success': productDetailsCtrl.quantityForm.quantity.$valid
 										&& productDetailsCtrl.quantityForm.quantity.$touched}"
 								name="productDetailsCtrl.quantityForm">
-							<div class="row">
+							<div class="row quantity">
 								<div class="col-sm-12">
 									<div class="input-group input-group-sm">
 										<div class="input-group-btn">
@@ -42,7 +42,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row quantity-error">
 								<div class="col-sm-12">
 									<div class="help-block" ng-messages="productDetailsCtrl.quantityForm.quantity.$error"
 											ng-show="productDetailsCtrl.quantityForm.quantity.$touched">

@@ -59,6 +59,14 @@
 	}
 }
 
+.quantity {
+	max-width: 200px;
+}
+
+.quantity-error {
+	max-width: 200px;
+}
+
 input[type=number].no-spinner::-webkit-inner-spin-button,
 input[type=number].no-spinner::-webkit-outer-spin-button {
 	-webkit-appearance: none;

@@ -6,21 +6,31 @@ angular.module('bookshop').service('ordersService', function($filter) {
 	//TODO quantity should be max 999
 	//TODO ordered products should be max 99
 	this.changeQuantity = function(product, quantity) {
-		var orderItem = $filter('filter')(this.order.orderItems, {productId: product.id});
-		//TODO list should have 0 or 1 element
+		var orderItemIndex = this.order.orderItems.findIndex((item) => {
+			return item.id === product.id;
+		});
 		
-		if (orderItem.length === 0) {
-			var newOrderItem = {productId: product.id, name: product.name, price: product.price, quantity: quantity, imagePath: product.imagePath};
+		if (orderItemIndex === -1) {
+			if (quantity === 0) {
+				return 0;
+			}
+			
+			var newOrderItem = {id: product.id, name: product.name, price: product.price, quantity: quantity, imagePath: product.imagePath};
 			this.order.orderItems.push(newOrderItem);
 			return newOrderItem.quantity;
 		} else {
-			orderItem[0].quantity = quantity;
-			return orderItem[0].quantity;
+			if (quantity === 0) {
+				this.order.orderItems.splice(orderItemIndex, 1);
+				return 0;
+			} else {
+				this.order.orderItems[orderItemIndex].quantity = quantity;
+				return this.order.orderItems[orderItemIndex].quantity;
+			}
 		}
 	}
 	
 	this.countProducts = function(productId) {
-		var orderItem = $filter('filter')(this.order.orderItems, {productId: productId});
+		var orderItem = $filter('filter')(this.order.orderItems, {id: productId});
 
 		if (orderItem.length === 0) {
 			return 0;
