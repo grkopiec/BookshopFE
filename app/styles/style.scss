@@ -1,5 +1,7 @@
 @import "custom-variables";
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "custom_mixins";
 @import "custom_style";
 
+@import "../core/make-order/order-details/order-details.style";
 @import "../core/products/parent/parent.style";

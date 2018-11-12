@@ -1,0 +1,17 @@
+#order form {
+	h4.required:after {
+		@include required-field;
+	}
+	
+	.radio label {
+		width: 100%;
+	}
+	
+	label {
+		font-weight: normal;
+	}
+	
+	.help-block {
+		color: $state-danger-text;
+	}
+}

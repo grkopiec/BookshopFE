@@ -1,0 +1,96 @@
+<div class="row">
+	<div class="col-sm-6 col-xs-6 buttons-content">
+		<a ui-sref="make-order.products-list" class="btn btn-default" href="">
+			<span class="glyphicon glyphicon-arrow-left"></span>
+			Back
+		</a>
+	</div>
+	<div class="col-sm-6 col-xs-6">
+		<div class="buttons-content clearfix">
+			<a ng-click="orderDetailsCtrl.validFormAndGoToSummary()" class="btn btn-success pull-right" href="">
+				<span class="glyphicon glyphicon-arrow-right"></span>
+				Summary
+			</a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<form name="orderDetailsCtrl.detailsForm">
+			<h4 class="required">Payment method</h4>
+			<div class="radio">
+				<label>
+					<input ng-model="orderDetailsCtrl.ordersService.order.order.paymentMethod" ng-required="true" type="radio" name="paymentMethod"
+							value="BANK_TRANSFER" />
+					<span>Bank transfer</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input ng-model="orderDetailsCtrl.ordersService.order.order.paymentMethod" ng-required="true" type="radio" name="paymentMethod"
+							value="ON_DELIVERY" />
+					<span>On delivery</span>
+				</label>
+			</div>
+			<div ng-show="orderDetailsCtrl.detailsForm.paymentMethod.$touched && orderDetailsCtrl.detailsForm.paymentMethod.$invalid"
+					ng-messages="orderDetailsCtrl.detailsForm.paymentMethod.$error" class="help-block">
+				<div>Choose payment method for Your order</div>
+			</div>
+			<h4 class="required top-margin">Shipping method</h4>
+			<div class="radio">
+				<label>
+					<input ng-model="orderDetailsCtrl.ordersService.order.order.shippingMethod" ng-required="true" type="radio" name="shippingMethod"
+							value="POST" />
+					<span>Post letter</span>
+					<span class="pull-right">{{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.shippingPricesValue.POST)}}</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input ng-model="orderDetailsCtrl.ordersService.order.order.shippingMethod" ng-required="true" type="radio" name="shippingMethod"
+							value="COURIER" />
+					<span>Courier</span>
+					<span class="pull-right">{{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.shippingPricesValue.COURIER)}}</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input ng-model="orderDetailsCtrl.ordersService.order.order.shippingMethod" ng-required="true" type="radio" name="shippingMethod"
+							value="PERSONAL_PICKUP" />
+					<span>Personal pickup</span>
+					<span class="pull-right">
+						{{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.shippingPricesValue.PERSONAL_PICKUP)}}
+					</span>
+				</label>
+			</div>
+			<div ng-show="orderDetailsCtrl.detailsForm.shippingMethod.$touched && orderDetailsCtrl.detailsForm.shippingMethod.$invalid"
+					ng-messages="orderDetailsCtrl.detailsForm.shippingMethod.$error" class="help-block">
+				<div>Choose shipping method of Your order</div>
+			</div>
+			<h4 class="top-margin">Additional information</h4>
+ 			<div class="form-group" ng-class="{'has-error': orderDetailsCtrl.detailsForm.additionalMessage.$invalid
+ 							&& orderDetailsCtrl.detailsForm.additionalMessage.$touched,
+ 							'has-success': orderDetailsCtrl.detailsForm.additionalMessage.$valid
+ 							&& orderDetailsCtrl.detailsForm.additionalMessage.$touched}">
+				<label class="control-label" for=additionalMessage>Message for example for courier, or additional information about order</label>
+				<textarea ng-model="orderDetailsCtrl.ordersService.order.order.additionalMessage" ng-minlength="1" ng-maxlength="1000"
+						class="form-control" name="additionalMessage"></textarea>
+				<div ng-show="orderDetailsCtrl.detailsForm.additionalMessage.$touched"
+						ng-messages="orderDetailsCtrl.detailsForm.additionalMessage.$error" class="help-block">
+					<div ng-messages-include="common\templates\form-error-messages.tpl.html"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-sm-6">
+		<p>Products price: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.productsPrice)}}</p>
+		<p ng-if="orderDetailsCtrl.angular.equals({}, orderDetailsCtrl.ordersService.order.order) === false
+						&& orderDetailsCtrl.ordersService.order.order.hasOwnProperty('shippingMethod') === true">
+			Shipping cost: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.calculateShippingCost())}}
+		</p>
+		<hr />
+		<h4 class="text-primary">
+			<strong>Total price: {{orderDetailsCtrl.calculateTotalPrice()}}</strong>
+		</h4>
+	</div>
+</div>
