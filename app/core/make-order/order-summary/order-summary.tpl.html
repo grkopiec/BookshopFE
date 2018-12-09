@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-6 col-xs-6 col-xs-offset-6">
+		<div class="buttons-content clearfix">
+			<a ui-sref="products" class="btn btn-success pull-right" href="">
+				<span class="glyphicon glyphicon-arrow-right"></span>
+				Finish
+			</a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<h4>Payment method</h4>
+		<div ng-switch="orderSummaryCtrl.ordersService.order.order.paymentMethod">
+			<span ng-switch-when="BANK_TRANSFER">Bank transfer</span>
+			<span ng-switch-when="ON_DELIVERY">On delivery</span>
+		</div>
+		<h4 class="top-margin">Shipping method</h4>
+		<div ng-switch="orderSummaryCtrl.ordersService.order.order.shippingMethod">
+			<span ng-switch-when="POST">Post letter</span>
+			<span ng-switch-when="COURIER">Courier</span>
+			<span ng-switch-when="PERSONAL_PICKUP">Courier</span>
+		</div>
+		<div ng-if="orderSummaryCtrl.ordersService.order.order.hasOwnProperty('additionalMessage') === true
+						&& orderSummaryCtrl.ordersService.order.order.additionalMessage !== ''">
+			<h4 class="top-margin">Additional information</h4>
+			<span>{{orderSummaryCtrl.ordersService.order.order.additionalMessage}}</span>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<p>Products price: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.productsPrice)}}</p>
+		<p>Shipping cost: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.calculateShippingCost())}}</p>
+		<hr />
+		<h4 class="text-primary">
+			<strong>Total price: {{orderSummaryCtrl.calculateTotalPrice()}}</strong>
+		</h4>
+	</div>
+</div>

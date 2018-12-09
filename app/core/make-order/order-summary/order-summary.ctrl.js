@@ -1,4 +1,4 @@
-angular.module('bookshop').controller('orderDetailsController', function($state, utilService, ordersService, shippingPricesValue) {
+angular.module('bookshop').controller('orderSummaryController', function(utilService, ordersService, shippingPricesValue) {
 	this.init = function() {
 		this.utilService = utilService;
 		this.ordersService = ordersService;
@@ -8,7 +8,7 @@ angular.module('bookshop').controller('orderDetailsController', function($state,
 		this.productsPrice = this.ordersService.calculateTotalPrice();
 		this.shippingPrice = this.calculateShippingCost();
 	}
-
+	
 	//TODO doubled method
 	this.calculateTotalPrice = function() {
 		var totalPrice = this.productsPrice + this.shippingPrice;
@@ -25,15 +25,6 @@ angular.module('bookshop').controller('orderDetailsController', function($state,
 			return 0;
 		}
 	}
-	
-	this.validFormAndGoToSummary = function() {
-		this.detailsForm.$setSubmitted();
-		this.detailsForm.paymentMethod.$setTouched();
-		this.detailsForm.shippingMethod.$setTouched();
-		if (this.detailsForm.$valid) {
-			$state.go('make-order.order-summary');
-		}
-	}
-	
+
 	this.init();
 });

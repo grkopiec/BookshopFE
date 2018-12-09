@@ -101,6 +101,16 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 			}
 		}
 	})
+	.state('make-order.order-summary', {
+		url: '/order-summary',
+		views: {
+			'orderSummary': {
+				controller: 'orderSummaryController',
+				controllerAs: 'orderSummaryCtrl',
+				templateUrl: 'core/make-order/order-summary/order-summary.tpl.html'
+			}
+		}
+	})
 	.state('cms', {
 		url: '/cms',
 		controller: 'cmsController',

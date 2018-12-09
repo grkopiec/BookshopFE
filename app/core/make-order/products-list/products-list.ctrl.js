@@ -30,7 +30,8 @@ angular.module('bookshop').controller('orderProductsController', function(
 			product.quantity = this.ordersService.changeQuantity(product, product.inputQuantity);
 		}
 	}
-	
+
+	//TODO doubled method
 	this.calculateTotalPrice = function() {
 		var totalPrice = this.ordersService.calculateTotalPrice();
 		return this.utilService.formatPrice(totalPrice);
