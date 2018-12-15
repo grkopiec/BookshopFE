@@ -4,7 +4,7 @@ angular.module('bookshop').controller('orderProductsController', function(
 		this.utilService = utilService;
 		this.ordersService = ordersService;
 	}
-	
+
 	this.incrementQuantity = function(product, index) {
 		product.inputQuantity++;
 		this['quantityForm' + index].quantity.$setTouched();
@@ -13,7 +13,7 @@ angular.module('bookshop').controller('orderProductsController', function(
 			product.quantity = this.ordersService.changeQuantity(product, product.inputQuantity);
 		}
 	}
-	
+
 	this.decrementQuantity = function(product, index) {
 		product.inputQuantity--;
 		this['quantityForm' + index].quantity.$setTouched();
@@ -22,7 +22,7 @@ angular.module('bookshop').controller('orderProductsController', function(
 			product.quantity = this.ordersService.changeQuantity(product, product.inputQuantity);
 		}
 	}
-	
+
 	this.changeQuantity = function(product, index) {
 		this['quantityForm' + index].quantity.$setTouched();
 		this['quantityForm' + index].$setSubmitted();
@@ -31,11 +31,5 @@ angular.module('bookshop').controller('orderProductsController', function(
 		}
 	}
 
-	//TODO doubled method
-	this.calculateTotalPrice = function() {
-		var totalPrice = this.ordersService.calculateTotalPrice();
-		return this.utilService.formatPrice(totalPrice);
-	}
-	
 	this.init();
 });

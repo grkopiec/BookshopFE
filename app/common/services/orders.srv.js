@@ -1,20 +1,23 @@
-angular.module('bookshop').service('ordersService', function($filter) {
+angular.module('bookshop').service('ordersService', function($filter, shippingPricesValue) {
 	this.init = function() {
+		this.shippingPricesValue = shippingPricesValue;
+		this.angular = angular;
+
 		this.order = {order: {}, orderItems: []};
 	}
-	
+
 	//TODO quantity should be max 999
 	//TODO ordered products should be max 99
 	this.changeQuantity = function(product, quantity) {
 		var orderItemIndex = this.order.orderItems.findIndex((item) => {
 			return item.id === product.id;
 		});
-		
+
 		if (orderItemIndex === -1) {
 			if (quantity === 0) {
 				return 0;
 			}
-			
+
 			var newOrderItem = {id: product.id, name: product.name, price: product.price, quantity: quantity, imagePath: product.imagePath};
 			this.order.orderItems.push(newOrderItem);
 			return newOrderItem.quantity;
@@ -28,7 +31,7 @@ angular.module('bookshop').service('ordersService', function($filter) {
 			}
 		}
 	}
-	
+
 	this.countProducts = function(productId) {
 		var orderItem = $filter('filter')(this.order.orderItems, {id: productId});
 
@@ -37,7 +40,7 @@ angular.module('bookshop').service('ordersService', function($filter) {
 		}
 		return orderItem[0].quantity;
 	}
-	
+
 	this.countAllProducts = function() {
 		var orderedProducts = 0;
 		
@@ -46,15 +49,29 @@ angular.module('bookshop').service('ordersService', function($filter) {
 		});
 		return orderedProducts;
 	}
-	
-	this.calculateTotalPrice = function() {
-		var totalPrice = 0;
+
+	this.calculateProductsPrice = function() {
+		var productsPrice = 0;
 		
 		angular.forEach(this.order.orderItems, function(value, key) {
-			totalPrice += value.quantity * value.price;
+			productsPrice += value.quantity * value.price;
 		});
-		return totalPrice;
+		return productsPrice;
 	}
 	
+	this.calculateShippingPrice = function() {
+		if (this.angular.equals({}, this.order.order) === false
+				&& this.order.order.hasOwnProperty('shippingMethod') === true) {
+			this.shippingPrice = this.shippingPricesValue[this.order.order.shippingMethod];
+			return this.shippingPrice;
+		} else {
+			return 0;
+		}
+	}
+
+	this.calculateTotalPrice = function() {
+		return this.calculateProductsPrice() + this.calculateShippingPrice();
+	}
+
 	this.init();
 });

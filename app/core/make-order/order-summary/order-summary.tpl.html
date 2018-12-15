@@ -28,11 +28,11 @@
 		</div>
 	</div>
 	<div class="col-sm-6">
-		<p>Products price: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.productsPrice)}}</p>
-		<p>Shipping cost: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.calculateShippingCost())}}</p>
+		<p>Products price: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.ordersService.calculateProductsPrice())}}</p>
+		<p>Shipping cost: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.ordersService.calculateShippingPrice())}}</p>
 		<hr />
 		<h4 class="text-primary">
-			<strong>Total price: {{orderSummaryCtrl.calculateTotalPrice()}}</strong>
+			<strong>Total price: {{orderSummaryCtrl.utilService.formatPrice(orderSummaryCtrl.ordersService.calculateTotalPrice())}}</strong>
 		</h4>
 	</div>
 </div>

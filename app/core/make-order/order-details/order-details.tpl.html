@@ -83,14 +83,14 @@
 		</form>
 	</div>
 	<div class="col-sm-6">
-		<p>Products price: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.productsPrice)}}</p>
+		<p>Products price: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.ordersService.calculateProductsPrice())}}</p>
 		<p ng-if="orderDetailsCtrl.angular.equals({}, orderDetailsCtrl.ordersService.order.order) === false
 						&& orderDetailsCtrl.ordersService.order.order.hasOwnProperty('shippingMethod') === true">
-			Shipping cost: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.calculateShippingCost())}}
+			Shipping cost: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.ordersService.calculateShippingPrice())}}
 		</p>
 		<hr />
 		<h4 class="text-primary">
-			<strong>Total price: {{orderDetailsCtrl.calculateTotalPrice()}}</strong>
+			<strong>Total price: {{orderDetailsCtrl.utilService.formatPrice(orderDetailsCtrl.ordersService.calculateTotalPrice())}}</strong>
 		</h4>
 	</div>
 </div>

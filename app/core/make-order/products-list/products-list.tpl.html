@@ -78,7 +78,7 @@
 				<tr ng-if="orderProductsCtrl.ordersService.order.orderItems.length !== 0">
 					<td></td>
 					<td></td>
-					<td>{{orderProductsCtrl.calculateTotalPrice()}}</td>
+					<td>{{orderProductsCtrl.utilService.formatPrice(orderProductsCtrl.ordersService.calculateProductsPrice())}}</td>
 					<td>{{orderProductsCtrl.ordersService.countAllProducts()}}</td>
 					<td></td>
 				</tr>
