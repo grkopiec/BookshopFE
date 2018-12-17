@@ -3,6 +3,10 @@ angular.module('bookshop').service('ordersService', function($filter, shippingPr
 		this.shippingPricesValue = shippingPricesValue;
 		this.angular = angular;
 
+		this.clear();
+	}
+	
+	this.clear = function() {
 		this.order = {order: {}, orderItems: []};
 	}
 

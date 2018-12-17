@@ -1,9 +1,15 @@
 <div class="row">
-	<div class="col-sm-6 col-sm-offset-6 col-xs-6 col-xs-offset-6">
+	<div class="col-sm-6 col-xs-6 buttons-content">
+		<a ui-sref="make-order.order-details" class="btn btn-default" href="">
+			<span class="glyphicon glyphicon-arrow-left"></span>
+			Back
+		</a>
+	</div>
+	<div class="col-sm-6 col-xs-6">
 		<div class="buttons-content clearfix">
-			<a ui-sref="products" class="btn btn-success pull-right" href="">
+			<a ng-click="orderSummaryCtrl.save()" class="btn btn-success pull-right" href="">
 				<span class="glyphicon glyphicon-arrow-right"></span>
-				Finish
+				Confirm order
 			</a>
 		</div>
 	</div>
