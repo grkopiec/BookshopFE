@@ -7,7 +7,13 @@ angular.module('bookshop').service('ordersService', function($filter, shippingPr
 	}
 	
 	this.clear = function() {
-		this.order = {order: {}, orderItems: []};
+		this.order = {
+			order: {
+				status: 'NEW',
+				paid: false
+			},
+			orderItems: []
+		};
 	}
 
 	//TODO quantity should be max 999
@@ -22,7 +28,7 @@ angular.module('bookshop').service('ordersService', function($filter, shippingPr
 				return 0;
 			}
 
-			var newOrderItem = {id: product.id, name: product.name, price: product.price, quantity: quantity, imagePath: product.imagePath};
+			var newOrderItem = {productId: product.id, name: product.name, price: product.price, quantity: quantity, imagePath: product.imagePath};
 			this.order.orderItems.push(newOrderItem);
 			return newOrderItem.quantity;
 		} else {
