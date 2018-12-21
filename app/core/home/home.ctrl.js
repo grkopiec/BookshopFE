@@ -1,2 +1,1 @@
-angular.module('bookshop').controller('homeController', function() {
-});
+angular.module('bookshop').controller('homeController', function() {});
