@@ -1,4 +1,5 @@
 angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+	//TODO change state names into camel case
 	//if user redirect to /cms show by default /categories nested state
 	$urlRouterProvider.when('/cms', '/cms/categories');
 	//if user redirect to /user-panel show by default /orders nested state
@@ -68,7 +69,15 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		url: '/orders',
 		controller: 'userOrdersController',
 		controllerAs: 'userOrdersCtrl',
-		templateUrl: 'core/user-panel/orders/user-orders.tpl.html'
+		templateUrl: 'core/user-panel/orders/user-orders.tpl.html',
+		params: {action: 'list'}
+	})
+	.state('user-panel.order-details', {
+		url: '/order-details',
+		controller: 'userOrdersController',
+		controllerAs: 'userOrdersCtrl',
+		templateUrl: 'core/user-panel/orders/user-order-details.tpl.html',
+		params: {action: 'show', order: null}
 	})
 	.state('user-panel.data', {
 		url: '/data',
