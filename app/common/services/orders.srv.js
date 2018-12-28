@@ -5,7 +5,7 @@ angular.module('bookshop').service('ordersService', function($filter, shippingPr
 
 		this.clear();
 	}
-	
+
 	this.clear = function() {
 		this.order = {
 			order: {
@@ -68,7 +68,16 @@ angular.module('bookshop').service('ordersService', function($filter, shippingPr
 		});
 		return productsPrice;
 	}
-	
+
+	this.calculateProductsPrice = function(orderItems) {
+		var productsPrice = 0;
+		for (var i = 0; i < orderItems.length; i++) {
+			var itemPrice = orderItems[i].quantity * orderItems[i].price;
+			productsPrice += itemPrice;
+		}
+		return productsPrice;
+	}
+
 	this.calculateShippingPrice = function() {
 		if (this.angular.equals({}, this.order.order) === false
 				&& this.order.order.hasOwnProperty('shippingMethod') === true) {

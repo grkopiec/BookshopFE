@@ -1,10 +1,10 @@
-angular.module('bookshop').controller('userOrdersController', function($stateParams, utilService, userService, ordersService, ordersFactory) {
+angular.module('bookshop').controller('cmsOrdersController', function($stateParams, utilService, userService, ordersService, ordersFactory) {
 	this.init = function() {
 		this.$stateParams = $stateParams;
 		this.utilService = utilService;
 		if (this.$stateParams.action === 'list') {
-			this.orders = ordersFactory.findForUser({id: userService.user.userId});
-		} else if (this.$stateParams.action === 'show') {
+			this.orders = ordersFactory.query();
+		} else if (this.$stateParams.action === 'edit') {
 			this.order = this.$stateParams.order;
 			var model = this;
 			ordersFactory.getItems({id: this.order.id}).$promise.then(function(orderElements) {

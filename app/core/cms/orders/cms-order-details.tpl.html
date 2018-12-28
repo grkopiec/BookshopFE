@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-sm-12 buttons-content">
-		<a ui-sref="user-panel.orders" href="" class="btn btn-default">
+		<a ui-sref="cms.orders" href="" class="btn btn-default">
 			<span class="glyphicon glyphicon-arrow-left"></span>
 			Back
 		</a>
@@ -19,15 +19,15 @@
 				</tr>
 		    </thead>
 		    <tbody>
-				<tr ng-repeat="orderItem in userOrdersCtrl.orderElements.orderItems track by $index"
-						ng-init="product = userOrdersCtrl.orderElements.products[$index]">
+				<tr ng-repeat="orderItem in cmsOrdersCtrl.orderElements.orderItems track by $index"
+						ng-init="product = cmsOrdersCtrl.orderElements.products[$index]">
 					<td>
-						<img alt="Product image" ng-src="{{userOrdersCtrl.utilService.calculateImagePath(product.imagePath)}}">
+						<img alt="Product image" ng-src="{{cmsOrdersCtrl.utilService.calculateImagePath(product.imagePath)}}">
 					</td>
 					<td>{{product.name}}</td>
-					<td>{{userOrdersCtrl.utilService.formatPrice(orderItem.price)}}</td>
+					<td>{{cmsOrdersCtrl.utilService.formatPrice(orderItem.price)}}</td>
 					<td>{{orderItem.quantity}}</td>
-					<td>{{userOrdersCtrl.utilService.formatPrice(orderItem.price * orderItem.quantity)}}</td>
+					<td>{{cmsOrdersCtrl.utilService.formatPrice(orderItem.price * orderItem.quantity)}}</td>
 				</tr>
 		    </tbody>
 		</table>
@@ -36,35 +36,35 @@
 <div class="row">
 	<div class="col-sm-6">
 		<h4>Payment method</h4>
-		<div ng-switch="userOrdersCtrl.order.paymentMethod">
+		<div ng-switch="cmsOrdersCtrl.order.paymentMethod">
 			<span ng-switch-when="BANK_TRANSFER">Bank transfer</span>
 			<span ng-switch-when="ON_DELIVERY">On delivery</span>
 		</div>
 		<h4 class="top-margin">Shipping method</h4>
-		<div ng-switch="userOrdersCtrl.order.shippingMethod">
+		<div ng-switch="cmsOrdersCtrl.order.shippingMethod">
 			<span ng-switch-when="POST">Post letter</span>
 			<span ng-switch-when="COURIER">Courier</span>
 			<span ng-switch-when="PERSONAL_PICKUP">Courier</span>
 		</div>
 		<h4 class="top-margin">Order status</h4>
-		<div ng-switch="userOrdersCtrl.order.status">
+		<div ng-switch="cmsOrdersCtrl.order.status">
 			<span ng-switch-when="NEW">New</span>
 			<span ng-switch-when="WAITING_ON_PAYMENT">Waiting on payment</span>
 			<span ng-switch-when="PREPARING">Preparing</span>
 			<span ng-switch-when="SENT">Sent</span>
 			<span ng-switch-when="FINISHED">Finished</span>
 		</div>
-		<div ng-if="userOrdersCtrl.order.additionalMessage !== null">
+		<div ng-if="cmsOrdersCtrl.order.additionalMessage !== null">
 			<h4 class="top-margin">Additional information</h4>
-			<span>{{userOrdersCtrl.order.additionalMessage}}</span>
+			<span>{{cmsOrdersCtrl.order.additionalMessage}}</span>
 		</div>
 	</div>
 	<div class="col-sm-6">
-		<p>Products price: {{userOrdersCtrl.productsPrice}}</p>
-		<p>Shipping cost: {{userOrdersCtrl.shippingCost}}</p>
+		<p>Products price: {{cmsOrdersCtrl.productsPrice}}</p>
+		<p>Shipping cost: {{cmsOrdersCtrl.shippingCost}}</p>
 		<hr />
 		<h4 class="text-primary">
-			<strong>Total price: {{userOrdersCtrl.utilService.formatPrice(userOrdersCtrl.order.totalPrice)}}</strong>
+			<strong>Total price: {{cmsOrdersCtrl.utilService.formatPrice(cmsOrdersCtrl.order.totalPrice)}}</strong>
 		</h4>
 	</div>
 </div>

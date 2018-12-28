@@ -1,7 +1,7 @@
 angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	//TODO change state names into camel case
 	//if user redirect to /cms show by default /categories nested state
-	$urlRouterProvider.when('/cms', '/cms/categories');
+	$urlRouterProvider.when('/cms', '/cms/orders');
 	//if user redirect to /user-panel show by default /orders nested state
 	$urlRouterProvider.when('/user-panel', '/user-panel/orders');
 	$urlRouterProvider.otherwise('/');
@@ -132,6 +132,20 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		controllerAs: 'cmsCtrl',
 		templateUrl: 'core/cms/cms.tpl.html'
 	})
+	.state('cms.orders', {
+		url: '/orders',
+		controller: 'cmsOrdersController',
+		controllerAs: 'cmsOrdersCtrl',
+		templateUrl: 'core/cms/orders/cms-orders.tpl.html',
+		params: {action: 'list'}
+	})
+	.state('cms.order-details', {
+		url: '/orders/:orderId',
+		controller: 'cmsOrdersController',
+		controllerAs: 'cmsOrdersCtrl',
+		templateUrl: 'core/cms/orders/cms-order-details.tpl.html',
+		params: {action: 'edit', order: null}
+	})
 	.state('cms.categories', {
 		url: '/categories',
 		controller: 'cmsCategoriesController',
@@ -145,6 +159,7 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		templateUrl: 'core/cms/products/cms-products-list.tpl.html',
 		params: {action: 'list'}
 	})
+	//TODO should be products in url
 	.state('cms.productAdd', {
 		url: '/product/add',
 		controller: 'cmsProductsController',
@@ -152,6 +167,7 @@ angular.module('bookshop').config(function($stateProvider, $urlRouterProvider, $
 		templateUrl: 'core/cms/products/cms-product-add-edit.tpl.html',
 		params: {action: 'add'}
 	})
+	//TODO should be products in url
 	.state('cms.productEdit', {
 		url: '/product/:productId',
 		controller: 'cmsProductsController',
