@@ -16,6 +16,13 @@ angular.module('bookshop').controller('cmsOrdersController', function($statePara
 			});
 		}
 	}
+	
+	this.changeStatus = function(orderStatus) {
+		var model = this;
+		ordersFactory.changeStatus({id: this.order.id}, {orderStatus: orderStatus}).$promise.then(function() {
+			model.order.status = orderStatus;
+		});
+	}
 
 	this.init();
 });

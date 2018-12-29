@@ -44,7 +44,7 @@
 		<div ng-switch="cmsOrdersCtrl.order.shippingMethod">
 			<span ng-switch-when="POST">Post letter</span>
 			<span ng-switch-when="COURIER">Courier</span>
-			<span ng-switch-when="PERSONAL_PICKUP">Courier</span>
+			<span ng-switch-when="PERSONAL_PICKUP">Personal pickup</span>
 		</div>
 		<h4 class="top-margin">Order status</h4>
 		<div ng-switch="cmsOrdersCtrl.order.status">
@@ -67,5 +67,29 @@
 		<h4 class="text-primary">
 			<strong>Total price: {{cmsOrdersCtrl.utilService.formatPrice(cmsOrdersCtrl.order.totalPrice)}}</strong>
 		</h4>
+		<button ng-if="cmsOrdersCtrl.order.status === 'NEW' && cmsOrdersCtrl.order.paymentMethod === 'BANK_TRANSFER'"
+				ng-click="cmsOrdersCtrl.changeStatus('WAITING_ON_PAYMENT')" class="btn btn-primary">
+			Mark as "Waiting on payment"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'NEW' && cmsOrdersCtrl.order.paymentMethod === 'ON_DELIVERY'"
+				ng-click="cmsOrdersCtrl.changeStatus('PREPARING')" class="btn btn-primary">
+			Mark as "Preparing"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PAYMENT'"
+				ng-click="cmsOrdersCtrl.changeStatus('PREPARING')" class="btn btn-primary">
+			Mark as "Preparing"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'PREPARING' && cmsOrdersCtrl.order.shippingMethod === 'PERSONAL_PICKUP'"
+				ng-click="cmsOrdersCtrl.changeStatus('WAITING_ON_PERSONAL_PICKUP')" class="btn btn-primary">
+			Mark as "Waiting on personal pickup"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'PREPARING' && cmsOrdersCtrl.order.shippingMethod !== 'PERSONAL_PICKUP'"
+				ng-click="cmsOrdersCtrl.changeStatus('SENT')" class="btn btn-primary">
+			Mark as "Sent"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PERSONAL_PICKUP' || cmsOrdersCtrl.order.status === 'SENT'"
+				ng-click="cmsOrdersCtrl.changeStatus('FINISHED')" class="btn btn-primary">
+			Mark as "Finished"
+		</button>
 	</div>
 </div>
