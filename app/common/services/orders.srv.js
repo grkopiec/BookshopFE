@@ -69,7 +69,7 @@ angular.module('bookshop').service('ordersService', function($filter, shippingPr
 		return productsPrice;
 	}
 
-	this.calculateProductsPrice = function(orderItems) {
+	this.calculateItemsProductsPrice = function(orderItems) {
 		var productsPrice = 0;
 		for (var i = 0; i < orderItems.length; i++) {
 			var itemPrice = orderItems[i].quantity * orderItems[i].price;

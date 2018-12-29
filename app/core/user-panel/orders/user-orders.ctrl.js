@@ -9,7 +9,7 @@ angular.module('bookshop').controller('userOrdersController', function($statePar
 			var model = this;
 			ordersFactory.getItems({id: this.order.id}).$promise.then(function(orderElements) {
 				model.orderElements = orderElements;
-				var rawProductsPrice = ordersService.calculateProductsPrice(orderElements.orderItems);
+				var rawProductsPrice = ordersService.calculateItemsProductsPrice(orderElements.orderItems);
 				model.productsPrice = model.utilService.formatPrice(rawProductsPrice);
 				var rawShippingCost = model.order.totalPrice - rawProductsPrice;
 				model.shippingCost = model.utilService.formatPrice(rawShippingCost);
