@@ -55,6 +55,11 @@
 			<span ng-switch-when="SENT">Sent</span>
 			<span ng-switch-when="FINISHED">Finished</span>
 		</div>
+		<h4 class="top-margin">Payment status</h4>
+		<div>
+			<span ng-if="cmsOrdersCtrl.order.paid === true" class="glyphicon glyphicon-ok icon-sm"></span>
+			<span ng-if="cmsOrdersCtrl.order.paid === false" class="glyphicon glyphicon-remove icon-sm"></span>
+		</div>
 		<div ng-if="cmsOrdersCtrl.order.additionalMessage !== null">
 			<h4 class="top-margin">Additional information</h4>
 			<span>{{cmsOrdersCtrl.order.additionalMessage}}</span>
@@ -75,7 +80,7 @@
 				ng-click="cmsOrdersCtrl.changeStatus('PREPARING')" class="btn btn-primary">
 			Mark as "Preparing"
 		</button>
-		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PAYMENT'"
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PAYMENT' && cmsOrdersCtrl.order.paid === true"
 				ng-click="cmsOrdersCtrl.changeStatus('PREPARING')" class="btn btn-primary">
 			Mark as "Preparing"
 		</button>
@@ -87,9 +92,32 @@
 				ng-click="cmsOrdersCtrl.changeStatus('SENT')" class="btn btn-primary">
 			Mark as "Sent"
 		</button>
-		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PERSONAL_PICKUP' || cmsOrdersCtrl.order.status === 'SENT'"
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PERSONAL_PICKUP' && cmsOrdersCtrl.order.paymentMethod === 'ON_DELIVERY'
+						&& cmsOrdersCtrl.order.paid === true"
 				ng-click="cmsOrdersCtrl.changeStatus('FINISHED')" class="btn btn-primary">
 			Mark as "Finished"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PERSONAL_PICKUP' && cmsOrdersCtrl.order.paymentMethod === 'BANK_TRANSFER'"
+				ng-click="cmsOrdersCtrl.changeStatus('FINISHED')" class="btn btn-primary">
+			Mark as "Finished"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'SENT' && cmsOrdersCtrl.order.paid === true"
+				ng-click="cmsOrdersCtrl.changeStatus('FINISHED')" class="btn btn-primary">
+			Mark as "Finished"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PAYMENT' && cmsOrdersCtrl.order.paid === false"
+				ng-click="cmsOrdersCtrl.markAsPaid()" class="btn btn-success">
+			Mark as "Paid"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'WAITING_ON_PERSONAL_PICKUP' && cmsOrdersCtrl.order.paymentMethod === 'ON_DELIVERY'
+						&& cmsOrdersCtrl.order.paid === false"
+				ng-click="cmsOrdersCtrl.markAsPaid()" class="btn btn-success">
+			Mark as "Paid"
+		</button>
+		<button ng-if="cmsOrdersCtrl.order.status === 'SENT' && cmsOrdersCtrl.order.paymentMethod === 'ON_DELIVERY'
+						&& cmsOrdersCtrl.order.paid === false"
+				ng-click="cmsOrdersCtrl.markAsPaid()" class="btn btn-success">
+			Mark as "Paid"
 		</button>
 	</div>
 </div>

@@ -55,6 +55,11 @@
 			<span ng-switch-when="SENT">Sent</span>
 			<span ng-switch-when="FINISHED">Finished</span>
 		</div>
+		<h4 class="top-margin">Payment status</h4>
+		<div>
+			<span ng-if="userOrdersCtrl.order.paid === true" class="glyphicon glyphicon-ok icon-sm"></span>
+			<span ng-if="userOrdersCtrl.order.paid === false" class="glyphicon glyphicon-remove icon-sm"></span>
+		</div>
 		<div ng-if="userOrdersCtrl.order.additionalMessage !== null">
 			<h4 class="top-margin">Additional information</h4>
 			<span>{{userOrdersCtrl.order.additionalMessage}}</span>
