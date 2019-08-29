@@ -11,12 +11,5 @@ describe('test suite for bookskhop application', function() {
 				userPanelCtrl = $controller('userPanelController');
 			});
 		});
-	
-		it('test initializing variables', function() {
-			var label = 'data';
-			userPanelCtrl.init();
-			
-			expect(userPanelCtrl.activeTab).toEqual(label);
-		});
 	});
 });

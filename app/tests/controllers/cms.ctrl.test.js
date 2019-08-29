@@ -11,12 +11,5 @@ describe('test suite for bookskhop application', function() {
 				cmsCtrl = $controller('cmsController');
 			});
 		});
-	
-		it('test initializing variables', function() {
-			var label = 'categories';
-			cmsCtrl.init();
-			
-			expect(cmsCtrl.activeTab).toEqual(label);
-		});
 	});
 });

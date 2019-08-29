@@ -3,7 +3,6 @@ angular.module('bookshop').controller('productsController', function($state, cat
 		this.categories = categoriesFactory.query();
 		this.activeCategory = 'All categories';
 	}
-	this.init();
 	
 	this.searchByCategory = function(category) {
 		this.activeCategory = category;
@@ -15,4 +14,6 @@ angular.module('bookshop').controller('productsController', function($state, cat
 		
 		$state.go('products.parent.all', {category: category});
 	}
+	
+	this.init();
 });
