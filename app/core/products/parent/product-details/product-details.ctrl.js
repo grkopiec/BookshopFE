@@ -1,5 +1,5 @@
 angular.module('bookshop').controller('productDetailsController', function(
-		$scope, $stateParams, utilService, ordersService, minOrderProductValue, maxOrderProductValue) {
+		$stateParams, utilService, ordersService, minOrderProductValue, maxOrderProductValue) {
 	this.init = function() {
 		this.utilService = utilService;
 		this.ordersService = ordersService;

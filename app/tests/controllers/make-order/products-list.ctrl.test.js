@@ -19,6 +19,8 @@ describe('test suite for bookskhop application', function() {
 		});
 
 		it('test initializing variables', function() {
+			orderProductsCtrl.init();
+			
 			expect(orderProductsCtrl.utilService).toEqual(utilSrv);
 			expect(orderProductsCtrl.ordersService).toEqual(ordersSrv);
 		});
