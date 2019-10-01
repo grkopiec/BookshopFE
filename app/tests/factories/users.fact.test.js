@@ -53,5 +53,11 @@ describe('test suite for bookskhop application', function() {
 			usersFact.update({id: 0}, {name: 'Username'});
 			httpBackend.flush();
 		});
+		
+		it('test resource patch call', function() {
+			httpBackend.expectPATCH(serverUrlVal + '/bookshop/users/change-password/0', {name: 'Username'}).respond(200);
+			usersFact.changePassword({id: 0}, {name: 'Username'});
+			httpBackend.flush();
+		});
 	});
 });
