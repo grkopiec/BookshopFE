@@ -14,7 +14,7 @@ describe('test suite for bookskhop application', function() {
 	
 		it('test value content',function() {
 			expect(serverUrlVal).toBeDefined();
-			expect(serverUrlVal).toBe('http://localhost:8080');
+			expect(serverUrlVal).toEqual('http://localhost:8080');
 		});
 	});
 });
