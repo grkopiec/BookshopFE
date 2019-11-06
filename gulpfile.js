@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+var terser = require('gulp-terser');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var pkg = require('./package.json');
@@ -58,7 +58,7 @@ gulp.task('js', function() {
 gulp.task('uglify', function() {
 	gulp.src(paths.js)
 			.pipe(concat(pkg.name + '.min.js'))
-			.pipe(uglify())
+			.pipe(terser())
 			.pipe(gulp.dest('dist/prod'));
 });
 
