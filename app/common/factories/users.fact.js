@@ -1,7 +1,7 @@
 angular.module('bookshop').factory('usersFactory', function($resource, serverUrlValue) {
-	return $resource(serverUrlValue + '/bookshop/users/:id', {}, {
-		save: {method: 'POST', url: serverUrlValue + '/bookshop/users/admin'},
+	return $resource(serverUrlValue + '/users/:id', {}, {
+		save: {method: 'POST', url: serverUrlValue + '/users/admin'},
 		update: {method: 'PUT'},
-		changePassword: {method: 'PATCH', url: serverUrlValue + '/bookshop/users/change-password/:id'}
+		changePassword: {method: 'PATCH', url: serverUrlValue + '/users/change-password/:id'}
 	});
 });

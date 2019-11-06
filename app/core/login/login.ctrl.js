@@ -6,7 +6,7 @@ angular.module('bookshop').controller('loginController', function($http, $state,
 	
 	this.login = function() {
 		$http({
-			url: serverUrlValue + '/bookshop/auth/login',
+			url: serverUrlValue + '/auth/login',
 			method: 'POST',
 			data: {
 				username: this.loginData.username,
