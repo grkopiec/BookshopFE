@@ -10,7 +10,7 @@ var paths = {
 	html: [
 	    'app/**/*.html'
 	],
-	js: [
+	jsDev: [
 	    'bower_components/jquery/dist/jquery.js',
 	    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
 	    'bower_components/angular/angular.js',
@@ -20,7 +20,21 @@ var paths = {
 	    'app/app.mdl.js',
 	    'app/app.rout.js',
 	    'app/*/**/*.js',
-	    '!app/tests/**/*.js'
+	    '!app/tests/**/*.js',
+	    '!app/common/values/server-url.prod.val.js'
+	],
+	jsProd: [
+	    'bower_components/jquery/dist/jquery.js',
+	    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+	    'bower_components/angular/angular.js',
+	    'bower_components/angular-resource/angular-resource.js',
+	    'bower_components/angular-ui-router/release/angular-ui-router.js',
+	    'bower_components/angular-messages/angular-messages.js',
+	    'app/app.mdl.js',
+	    'app/app.rout.js',
+	    'app/*/**/*.js',
+	    '!app/tests/**/*.js',
+	    '!app/common/values/server-url.dev.val.js'
 	],
 	sass: [
 	    'app/styles/style.scss'   
@@ -47,7 +61,7 @@ gulp.task('htmlProd', function() {
 });
 
 gulp.task('js', function() {
-	gulp.src(paths.js)
+	gulp.src(paths.jsDev)
 			.pipe(concat(pkg.name + '.js'))
 			.pipe(gulp.dest('dist/dev'))
 			.pipe(browserSync.reload({
@@ -56,7 +70,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('uglify', function() {
-	gulp.src(paths.js)
+	gulp.src(paths.jsProd)
 			.pipe(concat(pkg.name + '.min.js'))
 			.pipe(terser())
 			.pipe(gulp.dest('dist/prod'));

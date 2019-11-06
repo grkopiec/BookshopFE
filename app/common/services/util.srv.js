@@ -1,6 +1,6 @@
 angular.module('bookshop').service('utilService', function($filter, serverUrlValue) {
 	this.calculateImagePath = function(imagePath) {
-		return serverUrlValue + (imagePath === null ? '/bookshop/resources/noImage.png' : imagePath);
+		return serverUrlValue + (imagePath === null ? '/images/noImage.png' : imagePath);
 	}
 	this.formatPrice = function(value) {
 		var number = $filter('number')(value, 2);
